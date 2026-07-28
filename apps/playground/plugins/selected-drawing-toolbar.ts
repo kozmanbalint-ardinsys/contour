@@ -2,12 +2,12 @@ import {
   DrawingManager,
   RectangleDrawing,
   TextDrawing,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 import type {
   ChartContext,
   ChartPlugin,
   Drawing,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 
 export class SelectedDrawingToolbarPlugin implements ChartPlugin {
   readonly key = "playground-selected-drawing-toolbar";

@@ -1,4 +1,4 @@
-import type { LocaleValuesMap } from "@ardinsys/financial-charts";
+import type { LocaleValuesMap } from "@ardinsys/contour";
 import type { SiteLocale } from "~/data/messages";
 
 export const showcaseChartLocaleValues: LocaleValuesMap = {

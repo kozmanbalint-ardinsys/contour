@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ControllerType } from "@ardinsys/financial-charts";
+import type { ControllerType } from "@ardinsys/contour";
 
 const { copy } = useSiteLocale();
 const activeType = ref<ControllerType>("candle");

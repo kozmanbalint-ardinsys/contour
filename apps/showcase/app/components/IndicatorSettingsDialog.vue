@@ -2,7 +2,7 @@
 import {
   type MovingAverageIndicator,
   type MovingAverageOptions,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 
 const props = defineProps<{
   indicator?: MovingAverageIndicator;

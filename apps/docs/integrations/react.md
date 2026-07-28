@@ -1,30 +1,30 @@
 # React (16.8+)
 
-The official `@ardinsys/financial-charts-react` package owns the chart lifecycle,
+The official `@ardinsys/contour-react` package owns the chart lifecycle,
 applies prop changes, and lets React components render chart-managed DOM such as
 indicator labels.
 
 ## Installation
 
 ```bash
-pnpm add @ardinsys/financial-charts @ardinsys/financial-charts-react
+pnpm add @ardinsys/contour @ardinsys/contour-react
 ```
 
 Import the core stylesheet once in the application:
 
 ```ts
-import "@ardinsys/financial-charts/style.css";
+import "@ardinsys/contour/style.css";
 ```
 
 ## Chart component
 
 ```tsx
 import { useRef } from "react";
-import type { ChartData, ChartOptions } from "@ardinsys/financial-charts";
+import type { ChartData, ChartOptions } from "@ardinsys/contour";
 import {
   FinancialChart,
   type FinancialChartHandle,
-} from "@ardinsys/financial-charts-react";
+} from "@ardinsys/contour-react";
 
 const options: ChartOptions = {
   timeRange: "auto",
@@ -80,7 +80,7 @@ import {
   type FinancialChartProps,
   IndicatorLabelRendererMap,
   IndicatorLabelRendererProps,
-} from "@ardinsys/financial-charts-react";
+} from "@ardinsys/contour-react";
 
 const AccountContext = createContext("default");
 

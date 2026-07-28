@@ -1,8 +1,8 @@
 # Integrations overview
 
-`@ardinsys/financial-charts` only requires a real DOM element, a predictable
+`@ardinsys/contour` only requires a real DOM element, a predictable
 container size, and lifecycle hooks for cleanup. The official
-`@ardinsys/financial-charts-react` and `@ardinsys/financial-charts-vue`
+`@ardinsys/contour-react` and `@ardinsys/contour-vue`
 packages provide those bindings for React and Vue. Other runtimes can integrate
 the imperative core directly.
 
@@ -15,7 +15,7 @@ the imperative core directly.
 - Dispose the chart during teardown (`useEffect` cleanup, `onBeforeUnmount`, `ngOnDestroy`).
 - Keep the container height stable – the chart reacts to `ResizeObserver` events automatically.
 - Custom `controllers` are added to the built-ins. Set `includeDefaultControllers: false` only when you need an exact controller set.
-- For controller-level tree shaking, import `FinancialChart` from `@ardinsys/financial-charts/core` and controllers from their `@ardinsys/financial-charts/controllers/*` entry points.
+- For controller-level tree shaking, import `FinancialChart` from `@ardinsys/contour/core` and controllers from their `@ardinsys/contour/controllers/*` entry points.
 - Attach plugins before restoring contributor state. Chart state can be restored
   before or after data; a pre-data visible window is applied by the next
   `setData()`.

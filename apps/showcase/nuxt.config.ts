@@ -2,13 +2,13 @@ export default defineNuxtConfig({
   compatibilityDate: "2026-07-17",
   devtools: { enabled: true },
   modules: ["@nuxtjs/color-mode", "@nuxtjs/i18n"],
-  css: ["@ardinsys/financial-charts/style.css", "~/assets/css/main.css"],
+  css: ["@ardinsys/contour/style.css", "~/assets/css/main.css"],
   colorMode: {
     classPrefix: "",
     classSuffix: "",
     fallback: "dark",
     preference: "system",
-    storageKey: "ardin-charts-color-mode",
+    storageKey: "contour-color-mode",
   },
   i18n: {
     defaultLocale: "en",
@@ -19,13 +19,13 @@ export default defineNuxtConfig({
     ],
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: "ardin-charts-locale",
+      cookieKey: "contour-locale",
       redirectOn: "root",
     },
   },
   app: {
     head: {
-      title: "ARDINSYS Charts — Financial data, drawn beautifully",
+      title: "Contour — Financial data, drawn beautifully",
       meta: [
         { charset: "utf-8" },
         {

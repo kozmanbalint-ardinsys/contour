@@ -120,7 +120,7 @@ export const messages = {
       body: "Install the core, pass it data, and keep every escape hatch for the product you are building next.",
       primary: "Open the documentation",
       secondary: "Explore the source",
-      command: "pnpm add @ardinsys/financial-charts",
+      command: "pnpm add @ardinsys/contour",
     },
     footer: {
       summary:

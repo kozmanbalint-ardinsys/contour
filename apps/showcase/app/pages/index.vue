@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ControllerType } from "@ardinsys/financial-charts";
+import type { ControllerType } from "@ardinsys/contour";
 
 const { copy } = useSiteLocale();
 
@@ -77,7 +77,7 @@ function copyInstallCommand() {
 }
 
 useSeoMeta({
-  ogTitle: "ARDINSYS Charts — Financial data, drawn beautifully",
+  ogTitle: "Contour — Financial data, drawn beautifully",
   ogDescription:
     "A canvas-first, extensible financial charting library by ARDINSYS.",
   ogType: "website",
@@ -111,7 +111,7 @@ useSeoMeta({
               >
               <a
                 class="button button-ghost"
-                href="https://docs.ardinsys.eu/financial-charts/guide/quick-start.html"
+                href="https://contourjs.com/docs/guide/quick-start.html"
                 >{{ copy.hero.secondary }} <span>→</span></a
               >
             </div>
@@ -319,12 +319,12 @@ useSeoMeta({
             <div class="cta-actions">
               <a
                 class="button button-primary"
-                href="https://docs.ardinsys.eu/financial-charts/guide/quick-start.html"
+                href="https://contourjs.com/docs/guide/quick-start.html"
                 >{{ copy.cta.primary }} <span>→</span></a
               >
               <a
                 class="button button-ghost"
-                href="https://github.com/ardinsys/financial-charts"
+                href="https://github.com/ardinsys/contour"
                 >{{ copy.cta.secondary }}</a
               >
             </div>

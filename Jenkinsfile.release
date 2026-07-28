@@ -22,12 +22,12 @@ pipeline {
     booleanParam(
       name: 'DOCS_ONLY',
       defaultValue: false,
-      description: 'Skip versioning and npm publish; build and deploy only the documentation site.'
+      description: 'Skip versioning and npm publish; build and deploy contourjs.com with its documentation.'
     )
     booleanParam(
       name: 'DRY_RUN',
       defaultValue: false,
-      description: 'No version commit, npm publish --dry-run, no docs deploy, no git push.'
+      description: 'No version commit, npm publish --dry-run, no site deploy, no git push.'
     )
   }
 
@@ -38,7 +38,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git branch: "${refName()}", url: "https://github.com/ardinsys/financial-charts.git", credentialsId: "${GIT_CREDENTIALS_ID}"
+        git branch: "${refName()}", url: "https://github.com/ardinsys/contour.git", credentialsId: "${GIT_CREDENTIALS_ID}"
       }
     }
 
@@ -65,14 +65,15 @@ pipeline {
       }
     }
 
-
     stage('Build') {
       steps {
         script {
           nsh('''
             pnpm build
             pnpm docs:build
-            NUXT_APP_BASE_URL=/financial-charts-showcase/ pnpm --filter @ardinsys/financial-charts-showcase generate
+            NUXT_APP_BASE_URL=/ pnpm --filter @ardinsys/contour-showcase generate
+            mkdir -p apps/showcase/.output/public/docs
+            cp -R apps/docs/.vitepress/dist/. apps/showcase/.output/public/docs/
           ''')
         }
       }
@@ -103,11 +104,11 @@ pipeline {
           def distTag = params.BUMP.startsWith('pre') ? "--tag ${params.PREID}" : ''
           nsh("pnpm -r --filter './packages/**' publish --no-git-checks ${distTag} ${dryRunFlag}")
         }
-        
+
       }
     }
 
-    stage('Publish documentation') {
+    stage('Publish site') {
       when {
         expression { !params.DRY_RUN }
       }
@@ -115,55 +116,14 @@ pipeline {
         sshPublisher(
           publishers: [
             sshPublisherDesc(
-              configName: 'docs.ardinsys.hu', 
-              transfers: [
-                sshTransfer(
-                  cleanRemote: true, 
-                  execTimeout: 120000, 
-                  makeEmptyDirs: true, 
-                  noDefaultExcludes: true,
-                  remoteDirectory: 'financial-charts',
-                  removePrefix: 'apps/docs/.vitepress/dist',
-                  sourceFiles: 'apps/docs/.vitepress/dist/**'
-                )
-              ]
-            ),
-            sshPublisherDesc(
-              configName: 'docs.ardinsys.eu', 
-              transfers: [
-                sshTransfer(
-                  cleanRemote: true, 
-                  execTimeout: 120000, 
-                  makeEmptyDirs: true, 
-                  noDefaultExcludes: true,
-                  remoteDirectory: 'financial-charts',
-                  removePrefix: 'apps/docs/.vitepress/dist',
-                  sourceFiles: 'apps/docs/.vitepress/dist/**'
-                )
-              ]
-            )
-          ]
-        )
-      }
-    }
-
-    // Temporary home for the showcase site until it gets its own domain.
-    stage('Publish showcase') {
-      when {
-        expression { !params.DRY_RUN }
-      }
-      steps {
-        sshPublisher(
-          publishers: [
-            sshPublisherDesc(
-              configName: 'docs.ardinsys.eu',
+              configName: 'contourjs.com',
               transfers: [
                 sshTransfer(
                   cleanRemote: true,
                   execTimeout: 120000,
                   makeEmptyDirs: true,
                   noDefaultExcludes: true,
-                  remoteDirectory: 'financial-charts-showcase',
+                  remoteDirectory: '.',
                   removePrefix: 'apps/showcase/.output/public',
                   sourceFiles: 'apps/showcase/.output/public/**'
                 )
@@ -181,7 +141,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: "${GIT_CREDENTIALS_ID}", usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
           sh '''
-            git remote set-url origin https://${GIT_USER}:${GIT_PASS}@github.com/ardinsys/financial-charts.git
+            git remote set-url origin https://${GIT_USER}:${GIT_PASS}@github.com/ardinsys/contour.git
             git push origin HEAD --follow-tags
           '''
         }

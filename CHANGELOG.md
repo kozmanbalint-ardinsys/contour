@@ -4,6 +4,10 @@
 
 ### Breaking Changes
 
+- Rebranded the package family as Contour: `@ardinsys/contour`,
+  `@ardinsys/contour-react`, and `@ardinsys/contour-vue`.
+- Moved the product site to `contourjs.com` and its documentation to
+  `contourjs.com/docs`.
 - Switched the X-axis from continuous elapsed time to ordinal bar-index
   projection, so weekends, holidays, and missing bars collapse instead of
   leaving blank horizontal gaps.
@@ -124,7 +128,7 @@
 
 ### Fixed
 
-- The documented `@ardinsys/financial-charts/style.css` export now resolves to
+- The documented `@ardinsys/contour/style.css` export now resolves to
   the stylesheet emitted by the package build.
 - Bucket merging preserves zero and safely combines close-only, nullable OHLC,
   and missing-volume points without producing `NaN` scales.

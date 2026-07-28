@@ -1,5 +1,5 @@
-import { FinancialChart } from "@ardinsys/financial-charts/core";
-import { LineController } from "@ardinsys/financial-charts/controllers/line";
+import { FinancialChart } from "@ardinsys/contour/core";
+import { LineController } from "@ardinsys/contour/controllers/line";
 
 declare const container: HTMLElement;
 

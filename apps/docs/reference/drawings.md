@@ -9,7 +9,7 @@ import {
   TrendLine,
   RectangleDrawing,
   TextDrawing,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 
 const manager = new DrawingManager({
   drawingFactory: ({ anchors, paneId }) => new TrendLine({ anchors, paneId }),

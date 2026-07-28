@@ -8,7 +8,7 @@ Indicators can be drawn either on top of the main price chart (overlay indicator
 import {
   Indicator,
   type DefaultIndicatorOptions,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 
 abstract class MyIndicator extends Indicator<MyTheme, MyOptions> {
   static readonly ID = "my-indicator";
@@ -82,10 +82,7 @@ and any runtime dependencies; the library applies options, identity, and
 visibility after checking the state:
 
 ```ts
-import {
-  MovingAverageIndicator,
-  restoreIndicator,
-} from "@ardinsys/financial-charts";
+import { MovingAverageIndicator, restoreIndicator } from "@ardinsys/contour";
 
 const stored = JSON.stringify(indicator.toJSON());
 const restored = restoreIndicator(JSON.parse(stored), ({ typeId }) => {
@@ -103,7 +100,7 @@ Indicators with non-JSON option values or a custom serialized shape can
 override the paired hooks:
 
 ```ts
-import type { IndicatorStateOptions } from "@ardinsys/financial-charts/extensions";
+import type { IndicatorStateOptions } from "@ardinsys/contour/extensions";
 
 protected serializeStateOptions(): Record<string, unknown> {
   return { symbol: this.options.symbol };
@@ -265,7 +262,7 @@ includes `visible`. Read instance, type, and label identity from the indicator.
 ## Example
 
 ```ts
-import { MovingAverageIndicator } from "@ardinsys/financial-charts";
+import { MovingAverageIndicator } from "@ardinsys/contour";
 
 const sma = new MovingAverageIndicator(null, {
   instanceId: "primary-sma",

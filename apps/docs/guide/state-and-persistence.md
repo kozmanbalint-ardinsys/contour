@@ -11,7 +11,7 @@ import {
   DrawingManager,
   MovingAverageIndicator,
   type ChartState,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 
 const drawingManager = new DrawingManager();
 chart.addPlugin(drawingManager);
@@ -88,7 +88,7 @@ A plugin or application component can contribute JSON-safe state by exposing a
 unique key and paired serialization methods:
 
 ```ts
-import type { ChartStateContributor } from "@ardinsys/financial-charts";
+import type { ChartStateContributor } from "@ardinsys/contour";
 
 type WatchlistState = {
   comparisonSymbol?: string;

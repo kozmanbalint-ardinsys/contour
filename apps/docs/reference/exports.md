@@ -5,8 +5,8 @@ chart with every built-in controller, common built-ins, persistence, themes,
 formatting, drawings, and synchronization plugins.
 
 ```ts
-import { FinancialChart } from "@ardinsys/financial-charts";
-import "@ardinsys/financial-charts/style.css";
+import { FinancialChart } from "@ardinsys/contour";
+import "@ardinsys/contour/style.css";
 ```
 
 This page is the root-export inventory. Detailed behavior lives in the linked
@@ -74,19 +74,19 @@ The root exports `AreaController`, `BarController`, `CandlestickController`,
 `SteplineController`. Importing the root intentionally includes all of them.
 
 For a controller-curated bundle, import `FinancialChart` from
-`@ardinsys/financial-charts/core` and concrete controllers from:
+`@ardinsys/contour/core` and concrete controllers from:
 
-- `@ardinsys/financial-charts/controllers/area`
-- `@ardinsys/financial-charts/controllers/bar`
-- `@ardinsys/financial-charts/controllers/candle`
-- `@ardinsys/financial-charts/controllers/hlc-area`
-- `@ardinsys/financial-charts/controllers/hollow-candle`
-- `@ardinsys/financial-charts/controllers/line`
-- `@ardinsys/financial-charts/controllers/stepline`
+- `@ardinsys/contour/controllers/area`
+- `@ardinsys/contour/controllers/bar`
+- `@ardinsys/contour/controllers/candle`
+- `@ardinsys/contour/controllers/hlc-area`
+- `@ardinsys/contour/controllers/hollow-candle`
+- `@ardinsys/contour/controllers/line`
+- `@ardinsys/contour/controllers/stepline`
 
 ## Authoring entry points
 
-- `@ardinsys/financial-charts/extensions` exports plugin, indicator, drawing,
+- `@ardinsys/contour/extensions` exports plugin, indicator, drawing,
   annotation, DOM-adapter, rendering, chart-state, view, formatting, locale,
   and scale authoring contracts. It includes the abstract `Indicator`,
   `PaneledIndicator`, and `Drawing` authoring bases, but not bundled plugins,
@@ -94,7 +94,7 @@ For a controller-curated bundle, import `FinancialChart` from
   See [Plugins](/reference/plugins),
   [Indicators](/reference/indicators), [Drawings](/reference/drawings), and the
   [DOM adapter](/reference/dom-adapter).
-- `@ardinsys/financial-charts/engine` adds controllers, scales, panes, render
+- `@ardinsys/contour/engine` adds controllers, scales, panes, render
   stages, ticks, palette selection, and low-level DOM/canvas helpers. See
   [Engine](/reference/engine) and [Scales](/reference/scales).
 

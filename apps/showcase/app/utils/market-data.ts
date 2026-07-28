@@ -1,4 +1,4 @@
-import type { ChartData } from "@ardinsys/financial-charts";
+import type { ChartData } from "@ardinsys/contour";
 
 export const STEP_SIZE = 15 * 60 * 1000;
 

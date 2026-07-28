@@ -13,7 +13,7 @@ import {
   HorizontalLine,
   RectangleDrawing,
   TextDrawing,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 
 const manager = new DrawingManager({
   drawingFactory: ({ anchors, paneId }) => new TrendLine({ anchors, paneId }),
@@ -143,7 +143,7 @@ per-drawing create/delete events.
 Extend `Drawing`, provide a stable `type`, implement `draw()` and `hitTest()`, and register a deserializer when the drawing should be persisted. This example creates a price-band tool from two anchors:
 
 ```ts
-import { DrawingManager } from "@ardinsys/financial-charts";
+import { DrawingManager } from "@ardinsys/contour";
 import {
   Drawing,
   type DrawingHitTestContext,
@@ -151,7 +151,7 @@ import {
   type DrawingOptions,
   type DrawingPoint,
   type DrawingRenderContext,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 
 interface PriceBandData {
   color: string;

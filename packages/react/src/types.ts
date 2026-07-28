@@ -2,13 +2,13 @@ import type {
   ChartData,
   ChartOptions,
   FinancialChart as FinancialChartInstance,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 import type {
   ChartDOMAdapter,
   IndicatorLabelActions,
   IndicatorLabelModel,
   PaneDividerModel,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 import type { ComponentType, HTMLAttributes } from "react";
 
 export interface IndicatorLabelRendererProps {

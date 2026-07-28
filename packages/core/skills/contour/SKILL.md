@@ -1,26 +1,26 @@
 ---
-name: financial-charts
+name: contour
 description: >-
-  Build financial charts with @ardinsys/financial-charts — construction, data
+  Build financial charts with @ardinsys/contour — construction, data
   loading and streaming, runtime options, tree shaking, indicators, drawings,
   persistence, and the official React/Vue adapters. Use when writing or
-  debugging code that imports @ardinsys/financial-charts or its -react/-vue
+  debugging code that imports @ardinsys/contour or its -react/-vue
   adapter packages, or when integrating candlestick/OHLC charts with this
   library.
 license: Apache-2.0
 ---
 
-# Using @ardinsys/financial-charts
+# Using @ardinsys/contour
 
 Canvas-based charting engine for financial time series. Framework agnostic,
 ES modules, no runtime dependencies. Full documentation:
-https://docs.ardinsys.eu/financial-charts
+https://contourjs.com/docs
 
 ## Setup
 
 ```ts
-import "@ardinsys/financial-charts/style.css"; // once per application
-import { FinancialChart, type ChartData } from "@ardinsys/financial-charts";
+import "@ardinsys/contour/style.css"; // once per application
+import { FinancialChart, type ChartData } from "@ardinsys/contour";
 
 const chart = new FinancialChart(container, {
   stepSize: 15 * 60 * 1000, // required: bar duration in ms
@@ -77,8 +77,8 @@ The root entry registers every built-in controller. For smaller bundles,
 import the controller-neutral chart and only what you use:
 
 ```ts
-import { FinancialChart } from "@ardinsys/financial-charts/core";
-import { LineController } from "@ardinsys/financial-charts/controllers/line";
+import { FinancialChart } from "@ardinsys/contour/core";
+import { LineController } from "@ardinsys/contour/controllers/line";
 
 const chart = new FinancialChart(container, {
   controllers: [LineController],
@@ -87,15 +87,15 @@ const chart = new FinancialChart(container, {
 ```
 
 Controllers: `area`, `bar`, `candle`, `hlc-area`, `hollow-candle`, `line`,
-`stepline` — each under `@ardinsys/financial-charts/controllers/*`. Custom
+`stepline` — each under `@ardinsys/contour/controllers/*`. Custom
 indicator/plugin/drawing base classes come from
-`@ardinsys/financial-charts/extensions`.
+`@ardinsys/contour/extensions`.
 
 ## React and Vue
 
 Use the official adapters instead of hand-rolling lifecycle code:
-`@ardinsys/financial-charts-react` (16.8+) and
-`@ardinsys/financial-charts-vue` (3+). Both export a `FinancialChart`
+`@ardinsys/contour-react` (16.8+) and
+`@ardinsys/contour-vue` (3+). Both export a `FinancialChart`
 component that owns creation/disposal, applies runtime option changes via
 `updateOptions()`, and calls `setData()` when the `data` array identity
 changes.

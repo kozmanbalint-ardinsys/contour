@@ -1,6 +1,6 @@
-# Financial charts
+# Contour
 
-Canvas-based charting library for financial time series. It renders candles,
+Contour is a canvas-based charting library for financial time series. It renders candles,
 bars, lines, areas, indicators, and interactive drawings with a small,
 framework-agnostic API.
 
@@ -17,7 +17,7 @@ framework-agnostic API.
 ## Installation
 
 ```bash
-pnpm add @ardinsys/financial-charts
+pnpm add @ardinsys/contour
 ```
 
 The package ships as an ES module and works with bundlers such as Vite, Webpack,
@@ -25,13 +25,13 @@ Rollup, or any environment that can consume modern JavaScript. When using
 indicator labels, include the distributed stylesheet.
 
 ```ts
-import "@ardinsys/financial-charts/style.css";
+import "@ardinsys/contour/style.css";
 ```
 
 ## Quick start
 
 ```ts
-import { FinancialChart } from "@ardinsys/financial-charts";
+import { FinancialChart } from "@ardinsys/contour";
 
 const chart = new FinancialChart(document.getElementById("chart")!, {
   stepSize: 60_000,
@@ -47,12 +47,12 @@ chart.dispose();
 ```
 
 The root entry registers every built-in controller. For controller-level tree
-shaking, import `FinancialChart` from `@ardinsys/financial-charts/core` and each
-controller from its `@ardinsys/financial-charts/controllers/*` subpath.
+shaking, import `FinancialChart` from `@ardinsys/contour/core` and each
+controller from its `@ardinsys/contour/controllers/*` subpath.
 
 ## Documentation
 
-You can visit https://docs.ardinsys.eu/financial-charts for documentation.
+Visit https://contourjs.com/docs for documentation.
 
 The full guide and API reference live in `/apps/docs`. Run `pnpm docs:dev` locally
 or open the published docs site for tutorials on configuration, theming,

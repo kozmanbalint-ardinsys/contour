@@ -1,30 +1,30 @@
 {
-  "name": "@ardinsys/financial-charts-workspace",
+  "name": "@ardinsys/contour-workspace",
   "private": true,
-  "description": "Workspace for @ardinsys/financial-charts — canvas-based charting library for financial time series.",
+  "description": "Workspace for Contour — a canvas-based charting library for financial time series.",
   "type": "module",
   "license": "Apache-2.0",
   "author": "ARDINSYS Zrt.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ardinsys/financial-charts.git"
+    "url": "https://github.com/ardinsys/contour.git"
   },
   "packageManager": "pnpm@10.24.0",
   "scripts": {
-    "dev": "pnpm --filter @ardinsys/financial-charts-playground dev",
-    "playground": "pnpm --filter @ardinsys/financial-charts-playground dev",
+    "dev": "pnpm --filter @ardinsys/contour-playground dev",
+    "playground": "pnpm --filter @ardinsys/contour-playground dev",
     "build": "pnpm -r --filter './packages/**' --if-present run build",
     "test": "pnpm -r --filter './packages/**' --if-present run test",
     "typecheck": "pnpm -r --filter './packages/**' --if-present run typecheck",
     "format": "oxfmt",
-    "verify:package": "pnpm --filter @ardinsys/financial-charts verify:package",
-    "docs:dev": "pnpm --filter @ardinsys/financial-charts-docs dev",
-    "docs:build": "pnpm --filter @ardinsys/financial-charts-docs build",
-    "docs:preview": "pnpm --filter @ardinsys/financial-charts-docs preview",
-    "showcase": "pnpm build && pnpm --filter @ardinsys/financial-charts-showcase dev",
-    "showcase:dev": "pnpm build && pnpm --filter @ardinsys/financial-charts-showcase dev",
-    "showcase:build": "pnpm build && pnpm --filter @ardinsys/financial-charts-showcase build",
-    "showcase:generate": "pnpm build && pnpm --filter @ardinsys/financial-charts-showcase generate"
+    "verify:package": "pnpm --filter @ardinsys/contour verify:package",
+    "docs:dev": "pnpm --filter @ardinsys/contour-docs dev",
+    "docs:build": "pnpm --filter @ardinsys/contour-docs build",
+    "docs:preview": "pnpm --filter @ardinsys/contour-docs preview",
+    "showcase": "pnpm build && pnpm --filter @ardinsys/contour-showcase dev",
+    "showcase:dev": "pnpm build && pnpm --filter @ardinsys/contour-showcase dev",
+    "showcase:build": "pnpm build && pnpm --filter @ardinsys/contour-showcase build",
+    "showcase:generate": "pnpm build && pnpm --filter @ardinsys/contour-showcase generate"
   },
   "devDependencies": {
     "oxfmt": "^0.59.0"

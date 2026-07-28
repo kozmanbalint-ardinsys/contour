@@ -7,12 +7,12 @@ are exposed only through the focused authoring contexts described below.
 
 ## Package entry points
 
-- `@ardinsys/financial-charts` contains application-facing chart APIs and built-ins.
-- `@ardinsys/financial-charts/core` provides the controller-neutral chart for
+- `@ardinsys/contour` contains application-facing chart APIs and built-ins.
+- `@ardinsys/contour/core` provides the controller-neutral chart for
   tree-shaken controller selection.
-- `@ardinsys/financial-charts/extensions` contains indicator, plugin, drawing,
+- `@ardinsys/contour/extensions` contains indicator, plugin, drawing,
   annotation, and DOM-adapter authoring contracts.
-- `@ardinsys/financial-charts/engine` contains controller, scale, pane,
+- `@ardinsys/contour/engine` contains controller, scale, pane,
   render-pipeline, tick, and low-level DOM/canvas contracts.
 
 ## Readonly and ownership
@@ -133,7 +133,7 @@ const chart = new FinancialChart(root, {
 ## Data contracts
 
 ```ts
-// Exported as `ChartData` from "@ardinsys/financial-charts"
+// Exported as `ChartData` from "@ardinsys/contour"
 type ChartData = {
   readonly time: number; // UNIX timestamp in milliseconds
   readonly open?: number | null;
@@ -259,8 +259,8 @@ controller and custom `controllers` are additive. For a smaller controller set,
 import the controller-neutral chart and individual controller entry points:
 
 ```ts
-import { FinancialChart } from "@ardinsys/financial-charts/core";
-import { LineController } from "@ardinsys/financial-charts/controllers/line";
+import { FinancialChart } from "@ardinsys/contour/core";
+import { LineController } from "@ardinsys/contour/controllers/line";
 
 const chart = new FinancialChart(container, {
   controllers: [LineController],
@@ -478,4 +478,4 @@ visible data, and projection helpers. Override `getTimeAnchorAlignment()` when
 drawings, crosshair, axis labels, and indicator helpers should snap to a
 different point inside each time slot than the default center.
 Import controller base classes and their scale/render dependencies from
-`@ardinsys/financial-charts/engine`.
+`@ardinsys/contour/engine`.

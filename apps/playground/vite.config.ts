@@ -8,19 +8,19 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: /^@ardinsys\/financial-charts\/extensions$/,
+        find: /^@ardinsys\/contour\/extensions$/,
         replacement: fileURLToPath(
           new URL("../../packages/core/src/extensions.ts", import.meta.url)
         ),
       },
       {
-        find: /^@ardinsys\/financial-charts\/engine$/,
+        find: /^@ardinsys\/contour\/engine$/,
         replacement: fileURLToPath(
           new URL("../../packages/core/src/engine.ts", import.meta.url)
         ),
       },
       {
-        find: /^@ardinsys\/financial-charts$/,
+        find: /^@ardinsys\/contour$/,
         replacement: fileURLToPath(
           new URL("../../packages/core/src/index.ts", import.meta.url)
         ),

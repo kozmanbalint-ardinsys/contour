@@ -3,7 +3,7 @@
 The v1 chart uses index-based X mapping. Each data point occupies one ordinal slot, so weekends, holidays, and missing bars do not create blank horizontal gaps.
 
 Scale, pane, render-pipeline, tick, and low-level canvas contracts are exported
-from `@ardinsys/financial-charts/engine` rather than the application-focused
+from `@ardinsys/contour/engine` rather than the application-focused
 root entry.
 
 ## Scale interface
@@ -79,7 +79,7 @@ while getters lend the current range without copying it.
 Controllers use `DataScaleModel` to coordinate time, price, and volume scales for the active data set.
 
 ```ts
-import { DataScaleModel } from "@ardinsys/financial-charts/engine";
+import { DataScaleModel } from "@ardinsys/contour/engine";
 
 const scale = new DataScaleModel("ohlc", data, visibleTimeRange);
 const point = scale.mapToPixel(time, price, canvas);
@@ -108,7 +108,7 @@ The built-in tick generators are exported for custom axes and tests:
 Time ticks consume public timestamp data rather than a chart-internal store:
 
 ```ts
-import { generateTimeTicks } from "@ardinsys/financial-charts/engine";
+import { generateTimeTicks } from "@ardinsys/contour/engine";
 
 const ticks = generateTimeTicks({
   times: data.map((point) => point.time),

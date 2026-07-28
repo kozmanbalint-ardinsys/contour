@@ -8,6 +8,6 @@ export default defineConfig({
   },
   sourcemap: true,
   deps: {
-    neverBundle: [/^vue$/, /^@ardinsys\/financial-charts(?:\/.*)?$/],
+    neverBundle: [/^vue$/, /^@ardinsys\/contour(?:\/.*)?$/],
   },
 });

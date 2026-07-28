@@ -12,7 +12,7 @@ const statusCode = computed(() => String(props.error.statusCode ?? 500));
 
 useHead(() => ({
   htmlAttrs: { lang: siteLocaleLanguages[locale.value] },
-  title: `${statusCode.value} — ARDINSYS Charts`,
+  title: `${statusCode.value} — Contour`,
 }));
 
 function backToCharts() {
@@ -54,12 +54,16 @@ function backToCharts() {
           }}
         </p>
         <div class="error-actions">
-          <button class="button button-primary" type="button" @click="backToCharts">
+          <button
+            class="button button-primary"
+            type="button"
+            @click="backToCharts"
+          >
             {{ copy.errorPage.primary }}
           </button>
           <a
             class="button button-ghost"
-            href="https://docs.ardinsys.eu/financial-charts/guide/quick-start.html"
+            href="https://contourjs.com/docs/guide/quick-start.html"
           >
             {{ copy.errorPage.secondary }}
           </a>

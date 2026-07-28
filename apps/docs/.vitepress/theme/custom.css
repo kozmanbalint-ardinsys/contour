@@ -46,11 +46,7 @@
   --vp-button-brand-active-text: #ffffff;
 
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(
-    120deg,
-    #eb1a28 30%,
-    #428bca
-  );
+  --vp-home-hero-name-background: linear-gradient(120deg, #eb1a28 30%, #428bca);
 
   /* Code blocks are always dark, matching the showcase code specimen */
   --vp-code-block-bg: #061119;
@@ -121,7 +117,7 @@
   backdrop-filter: blur(18px) saturate(135%);
 }
 
-/* Brand: ARDINSYS wordmark + divider + "Charts." with the red dot */
+/* Brand: ARDINSYS wordmark + divider + "Contour." with the red dot */
 .VPNavBarTitle .logo {
   height: 20px;
   margin-right: 12px;

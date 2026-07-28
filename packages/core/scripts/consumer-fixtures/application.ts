@@ -2,7 +2,7 @@ import {
   FinancialChart,
   type ChartData,
   type ChartOptionsChangeEvent,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 
 declare const container: HTMLElement;
 

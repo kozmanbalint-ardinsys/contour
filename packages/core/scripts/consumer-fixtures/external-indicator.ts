@@ -9,7 +9,7 @@ import {
   type IndicatorOptionsInput,
   type ScaleRangeModifier,
   type TimeRange,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 
 interface Order {
   readonly id: string;

@@ -20,8 +20,8 @@ import {
   type ControllerType,
   type IndicatorResolver,
   type MovingAverageOptions,
-} from "@ardinsys/financial-charts";
-import type { Indicator } from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour";
+import type { Indicator } from "@ardinsys/contour/extensions";
 import {
   createDrawingFactory,
   drawingTools,

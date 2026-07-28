@@ -3,8 +3,8 @@ import {
   type DefaultIndicatorOptions,
   type IndicatorLabelContent,
   type PaneledIndicatorDrawingContext,
-} from "@ardinsys/financial-charts/extensions";
-import { DataScaleModel } from "@ardinsys/financial-charts/engine";
+} from "@ardinsys/contour/extensions";
+import { DataScaleModel } from "@ardinsys/contour/engine";
 
 export class PaneMarkerIndicator extends PaneledIndicator<
   {},

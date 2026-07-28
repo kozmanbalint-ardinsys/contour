@@ -15,8 +15,8 @@ import {
   type ExtensionThemeDefaults,
   type IndicatorDrawingContext,
   type IndicatorLabelContent,
-} from "@ardinsys/financial-charts/extensions";
-import type { ChartData } from "@ardinsys/financial-charts";
+} from "@ardinsys/contour/extensions";
+import type { ChartData } from "@ardinsys/contour";
 
 type PriceSource = "open" | "high" | "low" | "close";
 
@@ -132,9 +132,9 @@ import {
   type ExtensionThemeDefaults,
   type IndicatorLabelContent,
   type PaneledIndicatorDrawingContext,
-} from "@ardinsys/financial-charts/extensions";
-import { DataScaleModel } from "@ardinsys/financial-charts/engine";
-import type { ChartData, TimeRange } from "@ardinsys/financial-charts";
+} from "@ardinsys/contour/extensions";
+import { DataScaleModel } from "@ardinsys/contour/engine";
+import type { ChartData, TimeRange } from "@ardinsys/contour";
 
 interface RangePaneTheme {
   color: string;
@@ -280,7 +280,7 @@ the chart library owns state validation and applying options, identity, and
 visibility:
 
 ```ts
-import { restoreIndicator } from "@ardinsys/financial-charts";
+import { restoreIndicator } from "@ardinsys/contour";
 
 const state = indicator.toJSON();
 localStorage.setItem("indicator", JSON.stringify(state));
@@ -313,7 +313,7 @@ pointer delivery for hover, and owned price-axis annotations. It does not add a
 DOM listener or access an internal chart canvas.
 
 ```ts
-import type { TimeRange } from "@ardinsys/financial-charts";
+import type { TimeRange } from "@ardinsys/contour";
 import {
   Indicator,
   type IndicatorContext,
@@ -323,8 +323,8 @@ import {
   type ExtensionThemeMap,
   type IndicatorLabelContent,
   type IndicatorOptionsInput,
-} from "@ardinsys/financial-charts/extensions";
-import type { ScaleRangeModifier } from "@ardinsys/financial-charts/engine";
+} from "@ardinsys/contour/extensions";
+import type { ScaleRangeModifier } from "@ardinsys/contour/engine";
 
 interface Order {
   readonly id: string;

@@ -1,12 +1,12 @@
 import { createRef } from "react";
-import type { ChartOptions } from "@ardinsys/financial-charts";
+import type { ChartOptions } from "@ardinsys/contour";
 import {
   FinancialChart,
   ReactDOMAdapter,
   type FinancialChartHandle,
   type IndicatorLabelRendererMap,
   type IndicatorLabelRendererProps,
-} from "@ardinsys/financial-charts-react";
+} from "@ardinsys/contour-react";
 
 function OrdersLabel({ model, actions }: IndicatorLabelRendererProps) {
   return <button onClick={actions.onRemove}>{model.name}</button>;

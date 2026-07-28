@@ -1,7 +1,7 @@
 {
-  "name": "@ardinsys/financial-charts-react",
+  "name": "@ardinsys/contour-react",
   "version": "1.0.0-rc.3",
-  "description": "Official React bindings for @ardinsys/financial-charts — a chart component owning lifecycle, data replacement, runtime options, and chart-managed label rendering.",
+  "description": "Official React bindings for @ardinsys/contour — a chart component owning lifecycle, data replacement, runtime options, and chart-managed label rendering.",
   "keywords": [
     "charts",
     "financial",
@@ -10,13 +10,13 @@
     "canvas",
     "react"
   ],
-  "homepage": "https://docs.ardinsys.eu/financial-charts/integrations/react.html",
+  "homepage": "https://contourjs.com/docs/integrations/react.html",
   "type": "module",
   "license": "Apache-2.0",
   "author": "ARDINSYS Zrt.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ardinsys/financial-charts.git",
+    "url": "https://github.com/ardinsys/contour.git",
     "directory": "packages/react"
   },
   "main": "dist/index.js",
@@ -44,12 +44,12 @@
     "verify:package": "tsc -p scripts/consumer-fixtures/tsconfig.json && node -e \"import('./dist/index.js')\""
   },
   "peerDependencies": {
-    "@ardinsys/financial-charts": "workspace:^",
+    "@ardinsys/contour": "workspace:^",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@ardinsys/financial-charts": "workspace:*",
+    "@ardinsys/contour": "workspace:*",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",

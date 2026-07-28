@@ -1,8 +1,8 @@
 # Engine
 
-The `@ardinsys/financial-charts/engine` entry point contains the lower-level
+The `@ardinsys/contour/engine` entry point contains the lower-level
 contracts for custom series controllers, panes, scales, render stages, ticks,
-and canvas layers. Use `@ardinsys/financial-charts/extensions` for indicators,
+and canvas layers. Use `@ardinsys/contour/extensions` for indicators,
 plugins, drawings, and DOM adapter implementations.
 
 Application code usually imports `FinancialChart` from the root package. For a
@@ -16,7 +16,7 @@ A controller owns the main series' data scale, time bucketing, crosshair fields,
 bar alignment, and drawing pass.
 
 ```ts
-import { FinancialChart } from "@ardinsys/financial-charts/core";
+import { FinancialChart } from "@ardinsys/contour/core";
 import {
   ChartController,
   DataScaleModel,
@@ -24,7 +24,7 @@ import {
   type ChartData,
   type ChartDataValueKey,
   type TimeRange,
-} from "@ardinsys/financial-charts/engine";
+} from "@ardinsys/contour/engine";
 
 class CloseController extends ChartController {
   static readonly ID = "close";

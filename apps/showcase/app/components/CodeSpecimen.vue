@@ -14,7 +14,7 @@ type SyntaxToken =
   | "type";
 
 const snippets = {
-  core: `import { FinancialChart } from "@ardinsys/financial-charts";
+  core: `import { FinancialChart } from "@ardinsys/contour";
 
 const chart = new FinancialChart(host, {
   stepSize: 60_000,
@@ -24,9 +24,9 @@ const chart = new FinancialChart(host, {
 
 chart.setData(data);`,
   vue: `<script setup lang="ts">
-import type { ChartData } from "@ardinsys/financial-charts";
-import { FinancialChart } from "@ardinsys/financial-charts-vue";
-import "@ardinsys/financial-charts/style.css";
+import type { ChartData } from "@ardinsys/contour";
+import { FinancialChart } from "@ardinsys/contour-vue";
+import "@ardinsys/contour/style.css";
 
 defineProps<{ data: readonly ChartData[] }>();
 const options = { stepSize: 60_000 };
@@ -39,9 +39,9 @@ const options = { stepSize: 60_000 };
     :data="data"
   />
 </template>`,
-  react: `import type { ChartData } from "@ardinsys/financial-charts";
-import { FinancialChart } from "@ardinsys/financial-charts-react";
-import "@ardinsys/financial-charts/style.css";
+  react: `import type { ChartData } from "@ardinsys/contour";
+import { FinancialChart } from "@ardinsys/contour-react";
+import "@ardinsys/contour/style.css";
 
 const options = { stepSize: 60_000 };
 

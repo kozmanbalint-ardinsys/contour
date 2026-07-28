@@ -1,6 +1,6 @@
 # Design-system adapter
 
-Financial charts draws market data on canvas, but overlay UI is routed through `ChartDOMAdapter`. Use the default adapter when CSS hooks are enough, or pass your own adapter when labels and pane dividers should be rendered by your design system.
+Contour draws market data on canvas, but overlay UI is routed through `ChartDOMAdapter`. Use the default adapter when CSS hooks are enough, or pass your own adapter when labels and pane dividers should be rendered by your design system.
 
 ## Restyle the default overlay
 
@@ -75,9 +75,9 @@ import {
   type PaneDividerActions,
   type PaneDividerHandle,
   type PaneDividerModel,
-} from "@ardinsys/financial-charts/extensions";
-import { DefaultDOMAdapter, FinancialChart } from "@ardinsys/financial-charts";
-import { bindEvent } from "@ardinsys/financial-charts/engine";
+} from "@ardinsys/contour/extensions";
+import { DefaultDOMAdapter, FinancialChart } from "@ardinsys/contour";
+import { bindEvent } from "@ardinsys/contour/engine";
 
 class DesignSystemAdapter extends DefaultDOMAdapter {
   createIndicatorLabel(

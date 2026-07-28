@@ -9,14 +9,14 @@ the chart is embedded in a scrolling page.
 ## Install
 
 ```bash
-npm install @ardinsys/financial-charts
+npm install @ardinsys/contour
 ```
 
 Import the package stylesheet once in your application. It styles the chart
 container, indicator labels, controls, and pane dividers.
 
 ```ts
-import "@ardinsys/financial-charts/style.css";
+import "@ardinsys/contour/style.css";
 ```
 
 ## Create and feed a chart
@@ -25,7 +25,7 @@ The container must have a measurable width and height. Construct the chart,
 then replace its complete dataset with `setData()`.
 
 ```ts
-import { FinancialChart, type ChartData } from "@ardinsys/financial-charts";
+import { FinancialChart, type ChartData } from "@ardinsys/contour";
 
 const container = document.getElementById("chart-root")!;
 const data: ChartData[] = [
@@ -115,8 +115,8 @@ For controller-level tree shaking, import the controller-neutral chart and
 only the controllers the application uses:
 
 ```ts
-import { FinancialChart } from "@ardinsys/financial-charts/core";
-import { LineController } from "@ardinsys/financial-charts/controllers/line";
+import { FinancialChart } from "@ardinsys/contour/core";
+import { LineController } from "@ardinsys/contour/controllers/line";
 
 const chart = new FinancialChart(container, {
   controllers: [LineController],

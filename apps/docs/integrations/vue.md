@@ -3,7 +3,7 @@
 Install the official Vue integration alongside the core package:
 
 ```bash
-pnpm add @ardinsys/financial-charts @ardinsys/financial-charts-vue
+pnpm add @ardinsys/contour @ardinsys/contour-vue
 ```
 
 The component owns chart creation and disposal, applies runtime option changes,
@@ -12,12 +12,12 @@ and replaces chart data when the array reference changes.
 ```vue
 <script setup lang="ts">
 import { reactive, ref } from "vue";
-import type { ChartData, ChartOptions } from "@ardinsys/financial-charts";
+import type { ChartData, ChartOptions } from "@ardinsys/contour";
 import {
   FinancialChart,
   type FinancialChartExposed,
-} from "@ardinsys/financial-charts-vue";
-import "@ardinsys/financial-charts/style.css";
+} from "@ardinsys/contour-vue";
+import "@ardinsys/contour/style.css";
 
 const props = defineProps<{
   data: readonly ChartData[];
@@ -74,7 +74,7 @@ libraries normally.
 ```vue
 <!-- OrderIndicatorLabel.vue -->
 <script setup lang="ts">
-import type { IndicatorLabelRendererProps } from "@ardinsys/financial-charts-vue";
+import type { IndicatorLabelRendererProps } from "@ardinsys/contour-vue";
 
 defineProps<IndicatorLabelRendererProps>();
 </script>

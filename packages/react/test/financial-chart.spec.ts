@@ -13,7 +13,7 @@ import {
   type ChartData,
   type ChartOptions,
   type FinancialChart as FinancialChartInstance,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 import { describe, expect, it, vi } from "vitest";
 import { FinancialChart } from "../src/financial-chart";
 import type {

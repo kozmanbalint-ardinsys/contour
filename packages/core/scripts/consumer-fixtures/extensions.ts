@@ -31,7 +31,7 @@ import {
   type ScaleRangeModifier,
   type TimeRange,
   type TimeScaleRange,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 
 class ExtensionIndicator extends Indicator<{}, DefaultIndicatorOptions> {
   getDefaultOptions(): DefaultIndicatorOptions {

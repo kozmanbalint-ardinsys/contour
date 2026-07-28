@@ -16,8 +16,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@ardinsys/financial-charts": ["../core/src/index.ts"],
-      "@ardinsys/financial-charts/extensions": ["../core/src/extensions.ts"]
+      "@ardinsys/contour": ["../core/src/index.ts"],
+      "@ardinsys/contour/extensions": ["../core/src/extensions.ts"]
     }
   },
   "include": ["src", "test"]

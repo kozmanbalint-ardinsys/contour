@@ -20,7 +20,7 @@ importers:
 
   apps/playground:
     dependencies:
-      '@ardinsys/financial-charts':
+      '@ardinsys/contour':
         specifier: workspace:*
         version: link:../../packages/core
       vue:
@@ -36,10 +36,10 @@ importers:
 
   apps/showcase:
     dependencies:
-      '@ardinsys/financial-charts':
+      '@ardinsys/contour':
         specifier: workspace:*
         version: link:../../packages/core
-      '@ardinsys/financial-charts-vue':
+      '@ardinsys/contour-vue':
         specifier: workspace:*
         version: link:../../packages/vue
       '@nuxtjs/color-mode':
@@ -91,7 +91,7 @@ importers:
 
   packages/react:
     devDependencies:
-      '@ardinsys/financial-charts':
+      '@ardinsys/contour':
         specifier: workspace:*
         version: link:../core
       '@types/node':
@@ -127,7 +127,7 @@ importers:
 
   packages/vue:
     devDependencies:
-      '@ardinsys/financial-charts':
+      '@ardinsys/contour':
         specifier: workspace:*
         version: link:../core
       '@types/node':

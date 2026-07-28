@@ -5,8 +5,8 @@ import {
   type ChartOptions,
   type ControllerType,
   type FinancialChart,
-} from "@ardinsys/financial-charts";
-import { FinancialChart as VueFinancialChart } from "@ardinsys/financial-charts-vue";
+} from "@ardinsys/contour";
+import { FinancialChart as VueFinancialChart } from "@ardinsys/contour-vue";
 import {
   showcaseChartLocale,
   showcaseChartLocaleValues,

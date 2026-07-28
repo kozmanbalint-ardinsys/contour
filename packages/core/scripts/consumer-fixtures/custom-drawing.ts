@@ -1,4 +1,4 @@
-import { DrawingManager } from "@ardinsys/financial-charts";
+import { DrawingManager } from "@ardinsys/contour";
 import {
   Drawing,
   type DrawingHitTestContext,
@@ -6,7 +6,7 @@ import {
   type DrawingOptions,
   type DrawingPoint,
   type DrawingRenderContext,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 
 interface PriceBandData {
   color: string;

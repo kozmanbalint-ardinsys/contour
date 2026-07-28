@@ -12,7 +12,7 @@ import {
   type Formatter,
   type PaneledIndicatorDrawingContext,
   paletteColor,
-} from "@ardinsys/financial-charts/engine";
+} from "@ardinsys/contour/engine";
 
 class ExtensionPane extends PaneledIndicator<{}, DefaultIndicatorOptions> {
   getDefaultOptions(): DefaultIndicatorOptions {

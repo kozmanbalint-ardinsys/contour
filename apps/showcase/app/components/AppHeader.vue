@@ -13,17 +13,17 @@ function toggleTheme() {
   colorMode.preference = theme;
   document.documentElement.classList.remove("dark", "light");
   document.documentElement.classList.add(theme);
-  localStorage.setItem("ardin-charts-color-mode", theme);
+  localStorage.setItem("contour-color-mode", theme);
 }
 </script>
 
 <template>
   <header class="site-header">
     <div class="shell nav-shell">
-      <a class="brand" href="/" aria-label="ARDINSYS Charts home">
+      <a class="brand" href="/" aria-label="Contour home">
         <ArdinsysLogo />
         <span class="brand-divider" />
-        <span class="product-name">Charts<span>.</span></span>
+        <span class="product-name">Contour<span>.</span></span>
       </a>
 
       <nav
@@ -37,10 +37,9 @@ function toggleTheme() {
         <a href="/#frameworks" @click="menuOpen = false">{{
           copy.nav.frameworks
         }}</a>
-        <a
-          href="https://docs.ardinsys.eu/financial-charts/guide/quick-start.html"
-          >{{ copy.nav.docs }}</a
-        >
+        <a href="https://contourjs.com/docs/guide/quick-start.html">{{
+          copy.nav.docs
+        }}</a>
       </nav>
 
       <div class="nav-actions">
@@ -70,7 +69,7 @@ function toggleTheme() {
         </button>
         <a
           class="button button-small button-primary desktop-github"
-          href="https://github.com/ardinsys/financial-charts"
+          href="https://github.com/ardinsys/contour"
           >{{ copy.nav.github }}</a
         >
         <button

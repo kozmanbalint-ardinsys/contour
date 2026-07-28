@@ -1,4 +1,4 @@
-import type { ChartData, ChartThemeMap } from "@ardinsys/financial-charts";
+import type { ChartData, ChartThemeMap } from "@ardinsys/contour";
 
 export const stepSize = 15 * 60 * 1000;
 

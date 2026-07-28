@@ -6,7 +6,7 @@ Guidance for AI coding agents working in this repository.
 
 pnpm workspace (`pnpm@10`, Node version from `.node-version` via fnm).
 
-- `packages/core` — the published library `@ardinsys/financial-charts`. Canvas-based financial charting engine, framework agnostic, zero runtime dependencies.
+- `packages/core` — the published library `@ardinsys/contour`. Canvas-based financial charting engine, framework agnostic, zero runtime dependencies.
 - `packages/react`, `packages/vue` — first-class adapters (`-react`, `-vue` package suffixes) with a peer dependency on core.
 - `apps/playground` — Vite + Vue sandbox for local development (`pnpm dev`).
 - `apps/docs` — VitePress documentation site.
@@ -28,9 +28,9 @@ pnpm showcase                # builds packages, then Nuxt showcase dev server
 Single package / single test:
 
 ```bash
-pnpm --filter @ardinsys/financial-charts test                 # core tests only
-pnpm --filter @ardinsys/financial-charts exec vitest run test/chart-model.spec.ts
-pnpm --filter @ardinsys/financial-charts exec vitest run -t "test name"
+pnpm --filter @ardinsys/contour test                 # core tests only
+pnpm --filter @ardinsys/contour exec vitest run test/chart-model.spec.ts
+pnpm --filter @ardinsys/contour exec vitest run -t "test name"
 ```
 
 Tests live in `packages/*/test/*.spec.ts`, run in jsdom, and share `packages/core/test/chart-test-harness.ts`. CI (`.github/workflows/regression.yml`) runs build, typecheck, and tests on every push.

@@ -1,18 +1,18 @@
-# @ardinsys/financial-charts-vue
+# @ardinsys/contour-vue
 
 Official Vue 3 lifecycle and DOM integration for
-`@ardinsys/financial-charts`.
+`@ardinsys/contour`.
 
 ## Installation
 
 ```bash
-pnpm add @ardinsys/financial-charts @ardinsys/financial-charts-vue
+pnpm add @ardinsys/contour @ardinsys/contour-vue
 ```
 
 Import the core stylesheet once in the application:
 
 ```ts
-import "@ardinsys/financial-charts/style.css";
+import "@ardinsys/contour/style.css";
 ```
 
 ## Chart component
@@ -20,11 +20,11 @@ import "@ardinsys/financial-charts/style.css";
 ```vue
 <script setup lang="ts">
 import { reactive, ref } from "vue";
-import type { ChartData, ChartOptions } from "@ardinsys/financial-charts";
+import type { ChartData, ChartOptions } from "@ardinsys/contour";
 import {
   FinancialChart,
   type FinancialChartExposed,
-} from "@ardinsys/financial-charts-vue";
+} from "@ardinsys/contour-vue";
 
 const chart = ref<FinancialChartExposed>();
 const options = reactive<ChartOptions>({

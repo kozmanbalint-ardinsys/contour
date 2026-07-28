@@ -1,4 +1,4 @@
-import { DefaultDOMAdapter } from "@ardinsys/financial-charts";
+import { DefaultDOMAdapter } from "@ardinsys/contour";
 import type {
   ChartDOMAdapter,
   ChartDOMOverlay,
@@ -9,7 +9,7 @@ import type {
   PaneDividerActions,
   PaneDividerHandle,
   PaneDividerModel,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 import type {
   IndicatorLabelRenderer,
   PaneDividerRenderer,

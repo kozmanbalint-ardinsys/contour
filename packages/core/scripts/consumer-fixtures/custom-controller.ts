@@ -6,7 +6,7 @@ import {
   type ChartDataValueKey,
   type ControllerConstructor,
   type TimeRange,
-} from "@ardinsys/financial-charts/engine";
+} from "@ardinsys/contour/engine";
 
 class CloseController extends ChartController {
   static readonly ID = "close";

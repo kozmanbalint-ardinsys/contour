@@ -1,4 +1,4 @@
-import type { ChartThemeMap } from "@ardinsys/financial-charts";
+import type { ChartThemeMap } from "@ardinsys/contour";
 
 export const showcaseChartThemes = {
   "showcase-dark": {

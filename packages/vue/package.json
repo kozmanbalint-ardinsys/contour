@@ -1,7 +1,7 @@
 {
-  "name": "@ardinsys/financial-charts-vue",
+  "name": "@ardinsys/contour-vue",
   "version": "1.0.0-rc.3",
-  "description": "Official Vue 3 bindings for @ardinsys/financial-charts — a chart component owning lifecycle, data replacement, runtime options, and Teleport-based custom indicator labels.",
+  "description": "Official Vue 3 bindings for @ardinsys/contour — a chart component owning lifecycle, data replacement, runtime options, and Teleport-based custom indicator labels.",
   "keywords": [
     "charts",
     "financial",
@@ -10,13 +10,13 @@
     "canvas",
     "vue"
   ],
-  "homepage": "https://docs.ardinsys.eu/financial-charts/integrations/vue.html",
+  "homepage": "https://contourjs.com/docs/integrations/vue.html",
   "type": "module",
   "license": "Apache-2.0",
   "author": "ARDINSYS Zrt.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ardinsys/financial-charts.git",
+    "url": "https://github.com/ardinsys/contour.git",
     "directory": "packages/vue"
   },
   "main": "dist/index.js",
@@ -44,11 +44,11 @@
     "verify:package": "tsc -p scripts/consumer-fixtures/tsconfig.json && node -e \"import('./dist/index.js')\""
   },
   "peerDependencies": {
-    "@ardinsys/financial-charts": "workspace:^",
+    "@ardinsys/contour": "workspace:^",
     "vue": "^3.3.0"
   },
   "devDependencies": {
-    "@ardinsys/financial-charts": "workspace:*",
+    "@ardinsys/contour": "workspace:*",
     "@types/node": "^24.13.3",
     "jsdom": "^29.1.1",
     "tsdown": "^0.22.9",

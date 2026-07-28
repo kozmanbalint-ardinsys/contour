@@ -7,7 +7,7 @@ import type {
   IndicatorLabelModel,
   PaneDividerHandle,
   PaneDividerModel,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 import type { IndicatorLabelRendererProps } from "../src/types";
 import { ReactDOMAdapter } from "../src/react-dom-adapter";
 import { ReactDOMPortals } from "../src/react-dom-portals";

@@ -1,9 +1,9 @@
 ---
 layout: home
-title: "Financial charts"
+title: "Contour"
 titleTemplate: Canvas-based charting library for trading applications
 hero:
-  name: "Financial charts"
+  name: "Contour"
   text: Canvas based charts for trading
   tagline: Build interactive, high performance financial charts with a straightforward API.
   actions:
@@ -12,7 +12,7 @@ hero:
       link: /guide/quick-start
     - theme: alt
       text: View on GitHub
-      link: https://github.com/ardinsys/financial-charts
+      link: https://github.com/ardinsys/contour
 features:
   - title: Fast rendering
     details: "Canvas rendering keeps the chart responsive even with large datasets."
@@ -28,6 +28,6 @@ features:
 
 ## Overview
 
-Financial charts is a low-level canvas charting engine focused on financial time series. It provides primitives to render candles, bars, area charts, indicators, plugins, and drawing tools while remaining lightweight.
+Contour is a low-level canvas charting engine focused on financial time series. It provides primitives to render candles, bars, area charts, indicators, plugins, and drawing tools while remaining lightweight.
 
 Start with the [Introduction](/introduction), follow the [Guide](/guide/quick-start) for data and runtime patterns, browse [Integrations](/integrations/overview) for framework snippets, and use the [API Reference](/reference/chart) for signatures and event payloads. Upgrading from 0.9? Read `MIGRATION.md` in the repository.

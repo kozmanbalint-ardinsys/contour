@@ -10,10 +10,7 @@ cannot be attached twice. `addPlugin()` returns an idempotent disposer. After
 the chart.
 
 ```ts
-import type {
-  ChartContext,
-  ChartPlugin,
-} from "@ardinsys/financial-charts/extensions";
+import type { ChartContext, ChartPlugin } from "@ardinsys/contour/extensions";
 
 class WatermarkPlugin implements ChartPlugin {
   readonly key = "watermark";
@@ -78,7 +75,7 @@ keyed like chart themes:
 import {
   ExtensionThemeResolver,
   type ExtensionThemeMap,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 
 interface WatermarkTheme {
   color: string;
@@ -259,7 +256,7 @@ import {
   DrawingManager,
   FinancialChart,
   MovingAverageIndicator,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 import { OrdersIndicator } from "./orders-indicator";
 
 const drawingManager = new DrawingManager();
@@ -329,8 +326,8 @@ sync plugin before plugins that read it from `attach()`, then use
 `postMessage()` and `onMessage()` with an app-owned channel name:
 
 ```ts
-import { ChartSyncPlugin } from "@ardinsys/financial-charts";
-import type { ChartPlugin } from "@ardinsys/financial-charts/extensions";
+import { ChartSyncPlugin } from "@ardinsys/contour";
+import type { ChartPlugin } from "@ardinsys/contour/extensions";
 
 const sync = new ChartSyncPlugin({ group: "watchlist" });
 chart.addPlugin(sync);
@@ -382,10 +379,7 @@ drawing and the full selection event. It does not render DOM or mutate drawing
 styles.
 
 ```ts
-import {
-  DrawingSelectionPlugin,
-  type Drawing,
-} from "@ardinsys/financial-charts";
+import { DrawingSelectionPlugin, type Drawing } from "@ardinsys/contour";
 
 chart.addPlugin(
   new DrawingSelectionPlugin((drawing: Drawing | undefined) => {
@@ -417,10 +411,7 @@ chart.addPlugin(
 the X and Y axes. It works with `DrawingManager` events and is optional:
 
 ```ts
-import {
-  DrawingAxisBoundsPlugin,
-  DrawingManager,
-} from "@ardinsys/financial-charts";
+import { DrawingAxisBoundsPlugin, DrawingManager } from "@ardinsys/contour";
 
 chart.addPlugin(new DrawingManager());
 chart.addPlugin(new DrawingAxisBoundsPlugin());

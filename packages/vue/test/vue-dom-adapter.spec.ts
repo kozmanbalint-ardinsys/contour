@@ -4,7 +4,7 @@ import type {
   IndicatorLabelActions,
   IndicatorLabelModel,
   PaneDividerModel,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 import type { IndicatorLabelRendererProps } from "../src/types";
 import { VueDOMAdapter } from "../src/vue-dom-adapter";
 import { VueDOMPortals } from "../src/vue-dom-portals";

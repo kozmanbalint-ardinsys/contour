@@ -1,29 +1,29 @@
-# @ardinsys/financial-charts-react
+# @ardinsys/contour-react
 
 Official React lifecycle and DOM integration for
-`@ardinsys/financial-charts`.
+`@ardinsys/contour`.
 
 ## Installation
 
 ```bash
-pnpm add @ardinsys/financial-charts @ardinsys/financial-charts-react
+pnpm add @ardinsys/contour @ardinsys/contour-react
 ```
 
 Import the core stylesheet once in the application:
 
 ```ts
-import "@ardinsys/financial-charts/style.css";
+import "@ardinsys/contour/style.css";
 ```
 
 ## Chart component
 
 ```tsx
 import { useRef } from "react";
-import type { ChartData, ChartOptions } from "@ardinsys/financial-charts";
+import type { ChartData, ChartOptions } from "@ardinsys/contour";
 import {
   FinancialChart,
   type FinancialChartHandle,
-} from "@ardinsys/financial-charts-react";
+} from "@ardinsys/contour-react";
 
 const options: ChartOptions = {
   stepSize: 60_000,
@@ -64,7 +64,7 @@ import {
   type FinancialChartProps,
   IndicatorLabelRendererMap,
   IndicatorLabelRendererProps,
-} from "@ardinsys/financial-charts-react";
+} from "@ardinsys/contour-react";
 
 function OrderLabel({ model, actions }: IndicatorLabelRendererProps) {
   return (

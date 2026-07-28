@@ -4,7 +4,7 @@ import {
   TextDrawing,
   TrendLine,
   type DrawingFactory,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 
 export type DrawingTool =
   | "trendline"

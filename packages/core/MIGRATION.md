@@ -6,13 +6,25 @@ ordinal financial bars, panes, plugins, and drawing tools.
 
 ## Breaking changes
 
+### Package names use the Contour brand
+
+Replace the former package names with their Contour equivalents:
+
+| Previous                           | Replacement               |
+| ---------------------------------- | ------------------------- |
+| `@ardinsys/financial-charts`       | `@ardinsys/contour`       |
+| `@ardinsys/financial-charts-react` | `@ardinsys/contour-react` |
+| `@ardinsys/financial-charts-vue`   | `@ardinsys/contour-vue`   |
+
+The documentation now lives at <https://contourjs.com/docs>.
+
 ### Styles use the public package subpath
 
 Import the optional chart stylesheet through the package export rather than its
 internal `dist` directory:
 
 ```ts
-import "@ardinsys/financial-charts/style.css";
+import "@ardinsys/contour/style.css";
 ```
 
 Replace any previous
@@ -320,8 +332,8 @@ What to update:
   the target chart instance. Call `chart.registerDefaults()` to add the built-ins
   to an instance that was constructed with a custom set.
 - To exclude unused built-in controllers from application bundles, import
-  `FinancialChart` from `@ardinsys/financial-charts/core` and each required
-  controller from its `@ardinsys/financial-charts/controllers/*` entry point.
+  `FinancialChart` from `@ardinsys/contour/core` and each required
+  controller from its `@ardinsys/contour/controllers/*` entry point.
   The root entry remains the convenient all-controller setup.
 - Collection getters now return stable borrowed readonly snapshots. Plugin keys
   and plugin/indicator instances cannot be registered twice on one chart.
@@ -353,13 +365,13 @@ getCrosshairValues(): readonly ChartDataValueKey[] {
 ```
 
 Import `ChartController`, `ChartDataValueKey`, `DataScaleModel`, and related
-scale contracts from `@ardinsys/financial-charts/engine`. Tick generation now
+scale contracts from `@ardinsys/contour/engine`. Tick generation now
 accepts a sorted public `times: readonly number[]` input instead of the internal
 data store. `TimeScale`, `PriceScale`, and pane range getters return stable
 borrowed readonly snapshots rather than caller-owned mutable objects.
 
 `projectTime` was removed from the controller drawing context exposed by
-`@ardinsys/financial-charts/engine`. Custom controllers project visible data by
+`@ardinsys/contour/engine`. Custom controllers project visible data by
 index instead: replace `projectTime(point.time)` inside an indexed drawing loop
 with `projectIndex(visibleStartIndex + i)`.
 
@@ -426,24 +438,17 @@ markup, styling, or framework components.
 The root package now contains application-facing chart construction, options,
 data, state, built-in controllers and indicators, drawings, plugins, themes,
 formatting, and common events. Import extension-authoring contracts from
-`@ardinsys/financial-charts/extensions` and low-level chart internals from
-`@ardinsys/financial-charts/engine`:
+`@ardinsys/contour/extensions` and low-level chart internals from
+`@ardinsys/contour/engine`:
 
 ```ts
-import {
-  FinancialChart,
-  MovingAverageIndicator,
-} from "@ardinsys/financial-charts";
+import { FinancialChart, MovingAverageIndicator } from "@ardinsys/contour";
 import {
   Indicator,
   PaneledIndicator,
   type ChartPlugin,
-} from "@ardinsys/financial-charts/extensions";
-import {
-  DataScaleModel,
-  Pane,
-  TimeScale,
-} from "@ardinsys/financial-charts/engine";
+} from "@ardinsys/contour/extensions";
+import { DataScaleModel, Pane, TimeScale } from "@ardinsys/contour/engine";
 ```
 
 | Previously imported from the root                                          | v1 entry point |
@@ -464,8 +469,8 @@ paneled indicator class and icon assets.
 
 For the `commons-js` financial indicator package, move base indicator,
 paneled-indicator, drawing-context, and label-contract imports to
-`@ardinsys/financial-charts/extensions`. Move `DataScaleModel`, scale contracts,
-and `paletteColor` to `@ardinsys/financial-charts/engine`. Concrete chart APIs,
+`@ardinsys/contour/extensions`. Move `DataScaleModel`, scale contracts,
+and `paletteColor` to `@ardinsys/contour/engine`. Concrete chart APIs,
 `ChartData`, themes, formatter types, and indicator state restoration remain on
 the root entry. This is an import-path migration only; updating the downstream
 indicator implementations remains a separate repository change.

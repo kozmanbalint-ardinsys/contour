@@ -9,7 +9,7 @@ const { copy } = useSiteLocale();
         <div class="brand">
           <ArdinsysLogo />
           <span class="brand-divider" />
-          <span class="product-name">Charts<span>.</span></span>
+          <span class="product-name">Contour<span>.</span></span>
         </div>
         <p>{{ copy.footer.summary }}</p>
       </div>
@@ -21,14 +21,11 @@ const { copy } = useSiteLocale();
       </div>
       <div>
         <h3>{{ copy.footer.resources }}</h3>
-        <a
-          href="https://docs.ardinsys.eu/financial-charts/guide/quick-start.html"
-          >{{ copy.nav.docs }}</a
-        >
-        <a href="https://github.com/ardinsys/financial-charts">GitHub</a>
-        <a href="https://www.npmjs.com/package/@ardinsys/financial-charts"
-          >npm</a
-        >
+        <a href="https://contourjs.com/docs/guide/quick-start.html">{{
+          copy.nav.docs
+        }}</a>
+        <a href="https://github.com/ardinsys/contour">GitHub</a>
+        <a href="https://www.npmjs.com/package/@ardinsys/contour">npm</a>
       </div>
       <div>
         <h3>{{ copy.footer.company }}</h3>
@@ -38,7 +35,7 @@ const { copy } = useSiteLocale();
     </div>
     <div class="shell footer-bottom">
       <span>© {{ new Date().getFullYear() }} {{ copy.footer.copyright }}</span>
-      <span class="mono">@ardinsys/financial-charts</span>
+      <span class="mono">@ardinsys/contour</span>
     </div>
   </footer>
 </template>

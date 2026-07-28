@@ -1,6 +1,6 @@
 # Introduction
 
-`@ardinsys/financial-charts` is a canvas-first charting engine for financial time series. It keeps rendering, zooming, and streaming data responsive while staying small and framework agnostic.
+`@ardinsys/contour` is a canvas-first charting engine for financial time series. It keeps rendering, zooming, and streaming data responsive while staying small and framework agnostic.
 
 ## Design goals
 

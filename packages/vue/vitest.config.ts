@@ -5,13 +5,13 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: /^@ardinsys\/financial-charts\/extensions$/,
+        find: /^@ardinsys\/contour\/extensions$/,
         replacement: fileURLToPath(
           new URL("../core/src/extensions.ts", import.meta.url)
         ),
       },
       {
-        find: /^@ardinsys\/financial-charts$/,
+        find: /^@ardinsys\/contour$/,
         replacement: fileURLToPath(
           new URL("../core/src/index.ts", import.meta.url)
         ),

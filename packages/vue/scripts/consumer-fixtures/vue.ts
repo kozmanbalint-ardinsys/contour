@@ -1,15 +1,15 @@
 import { defineComponent, h, type PropType } from "vue";
-import type { ChartOptions } from "@ardinsys/financial-charts";
+import type { ChartOptions } from "@ardinsys/contour";
 import type {
   IndicatorLabelActions,
   IndicatorLabelModel,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 import {
   FinancialChart,
   VueDOMAdapter,
   type FinancialChartExposed,
   type IndicatorLabelRendererMap,
-} from "@ardinsys/financial-charts-vue";
+} from "@ardinsys/contour-vue";
 
 const OrdersLabel = defineComponent({
   props: {

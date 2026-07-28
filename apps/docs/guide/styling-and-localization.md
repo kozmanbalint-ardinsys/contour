@@ -22,7 +22,7 @@ Register theme definitions when the chart is created. Missing values are
 resolved from a built-in base, and runtime changes select a registered key.
 
 ```ts
-import { FinancialChart, type ChartThemeMap } from "@ardinsys/financial-charts";
+import { FinancialChart, type ChartThemeMap } from "@ardinsys/contour";
 
 const themes = {
   light: {
@@ -71,7 +71,7 @@ The theme's `randomColors` field is an explicit deterministic palette. Custom
 indicators can select from it without coupling a utility to the chart:
 
 ```ts
-import { paletteColor } from "@ardinsys/financial-charts/engine";
+import { paletteColor } from "@ardinsys/contour/engine";
 
 const color = paletteColor(chart.getOptions().theme.randomColors, seriesIndex);
 ```
@@ -174,7 +174,7 @@ chart.updateOptions({
 `DefaultFormatter` accepts locale, timezone, and Intl option overrides:
 
 ```ts
-import { DefaultFormatter } from "@ardinsys/financial-charts";
+import { DefaultFormatter } from "@ardinsys/contour";
 
 const formatter = new DefaultFormatter({
   locale: "en-US",
@@ -204,7 +204,7 @@ charts with potentially different localization settings.
 For completely custom label formatting, extend the `Formatter` interface (or `DefaultFormatter`) and pass an instance to the chart:
 
 ```ts
-import { DefaultFormatter, FinancialChart } from "@ardinsys/financial-charts";
+import { DefaultFormatter, FinancialChart } from "@ardinsys/contour";
 
 // Example: user formatter (not shipped with the library)
 class CustomFormatter extends DefaultFormatter {
@@ -224,7 +224,7 @@ chart.updateOptions({
 });
 ```
 
-Remember to import `@ardinsys/financial-charts/style.css` when using indicators so the UI labels inherit the base styling. To restyle or replace indicator labels and pane dividers, see [Design-system adapter](/guide/design-system-adapter).
+Remember to import `@ardinsys/contour/style.css` when using indicators so the UI labels inherit the base styling. To restyle or replace indicator labels and pane dividers, see [Design-system adapter](/guide/design-system-adapter).
 
 ## Wiring an i18n bundle to the chart
 
@@ -232,7 +232,7 @@ If you already have a localization bundle (for example from `@ardinsys/intl`), f
 
 ```ts
 import { createIntl } from "@ardinsys/intl";
-import { FinancialChart } from "@ardinsys/financial-charts";
+import { FinancialChart } from "@ardinsys/contour";
 
 const { locale, setLocale, t } = createIntl("en", {
   en: {
@@ -328,8 +328,8 @@ Use a computed value to regenerate the chart's locale bundle whenever your i18n 
 ```vue
 <script setup lang="ts">
 import { computed, onMounted, onBeforeUnmount, ref, watchEffect } from "vue";
-import { FinancialChart } from "@ardinsys/financial-charts";
-import "@ardinsys/financial-charts/style.css";
+import { FinancialChart } from "@ardinsys/contour";
+import "@ardinsys/contour/style.css";
 import { createIntl } from "@ardinsys/intl";
 
 const { locale, setLocale, t } = createIntl("en", {
@@ -440,7 +440,7 @@ Switch the intl store with `setLocale("hu")` (or any supported code) and the cha
 `Formatter` methods control every label rendered by the chart. You can forward formatting calls to your own toolkit to share currency and date rules across the app.
 
 ```ts
-import { DefaultFormatter } from "@ardinsys/financial-charts";
+import { DefaultFormatter } from "@ardinsys/contour";
 import { createIntl } from "@ardinsys/intl";
 
 const intl = createIntl("en", {

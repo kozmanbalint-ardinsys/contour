@@ -1,4 +1,4 @@
-import { DefaultDOMAdapter } from "@ardinsys/financial-charts";
+import { DefaultDOMAdapter } from "@ardinsys/contour";
 import {
   type IndicatorLabelActions,
   type IndicatorLabelHandle,
@@ -6,8 +6,8 @@ import {
   type PaneDividerActions,
   type PaneDividerHandle,
   type PaneDividerModel,
-} from "@ardinsys/financial-charts/extensions";
-import { bindEvent } from "@ardinsys/financial-charts/engine";
+} from "@ardinsys/contour/extensions";
+import { bindEvent } from "@ardinsys/contour/engine";
 
 class DesignSystemAdapter extends DefaultDOMAdapter {
   override createIndicatorLabel(

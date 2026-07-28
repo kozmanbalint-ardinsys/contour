@@ -16,7 +16,7 @@ export default defineConfig({
     neverBundle: [
       /^react$/,
       /^react-dom(?:\/.*)?$/,
-      /^@ardinsys\/financial-charts(?:\/.*)?$/,
+      /^@ardinsys\/contour(?:\/.*)?$/,
     ],
   },
 });

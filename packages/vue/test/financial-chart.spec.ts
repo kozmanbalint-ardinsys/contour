@@ -15,11 +15,11 @@ import {
   type ChartOptions,
   type FinancialChart as FinancialChartInstance,
   type LocaleValues,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 import type {
   IndicatorLabelActions,
   IndicatorLabelModel,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 import { describe, expect, it, vi } from "vitest";
 import { FinancialChart } from "../src/financial-chart";
 

@@ -13,22 +13,22 @@ import {
   type DrawingMutationOptions,
   type DrawingSelectionOptions,
   type IndicatorMutationOptions,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 
 // @ts-expect-error Indicator authoring contracts use the extensions entry.
-import type { Indicator } from "@ardinsys/financial-charts";
+import type { Indicator } from "@ardinsys/contour";
 // @ts-expect-error Plugin authoring contracts use the extensions entry.
-import type { ChartPlugin } from "@ardinsys/financial-charts";
+import type { ChartPlugin } from "@ardinsys/contour";
 // @ts-expect-error Scale contracts use the engine entry.
-import type { DataScaleModel } from "@ardinsys/financial-charts";
+import type { DataScaleModel } from "@ardinsys/contour";
 // @ts-expect-error Test fixtures are not public API.
-import { TestIndicator } from "@ardinsys/financial-charts";
+import { TestIndicator } from "@ardinsys/contour";
 // @ts-expect-error Adapter implementation assets are not public API.
-import { ICON_SHOW } from "@ardinsys/financial-charts";
+import { ICON_SHOW } from "@ardinsys/contour";
 // @ts-expect-error The built-in controller registry is an implementation detail.
-import { defaultControllers } from "@ardinsys/financial-charts";
+import { defaultControllers } from "@ardinsys/contour";
 // @ts-expect-error Render-layer contracts use the extensions entry.
-import type { ChartRedrawPart } from "@ardinsys/financial-charts";
+import type { ChartRedrawPart } from "@ardinsys/contour";
 
 const data: ChartData[] = [{ time: 0, close: 1 }];
 const options: ChartOptions = {
@@ -104,4 +104,4 @@ void [
 ];
 
 // @ts-expect-error Package internals are not public subpaths.
-void import("@ardinsys/financial-charts/src/chart/financial-chart");
+void import("@ardinsys/contour/src/chart/financial-chart");

@@ -3,15 +3,15 @@
 `ChartDOMAdapter` is the non-canvas UI seam. The chart renders market data, axes, grid, and crosshair labels on canvas; the adapter owns overlay UI such as the indicator-label region, indicator actions, and pane dividers.
 
 Import `DefaultDOMAdapter` from the root entry and adapter authoring contracts
-from `@ardinsys/financial-charts/extensions`:
+from `@ardinsys/contour/extensions`:
 
 ```ts
-import { DefaultDOMAdapter } from "@ardinsys/financial-charts";
+import { DefaultDOMAdapter } from "@ardinsys/contour";
 import type {
   ChartDOMAdapter,
   IndicatorLabelModel,
   PaneDividerModel,
-} from "@ardinsys/financial-charts/extensions";
+} from "@ardinsys/contour/extensions";
 ```
 
 ## ChartDOMAdapter

@@ -49,9 +49,9 @@ const showcaseCodeTheme = {
 
 export default defineConfig({
   lang: "en-US",
-  title: "Financial charts",
+  title: "Contour",
   description: "Canvas-based financial charting library with a simple API.",
-  base: "/financial-charts",
+  base: "/docs/",
   lastUpdated: true,
   head: [
     [
@@ -59,7 +59,7 @@ export default defineConfig({
       {
         rel: "icon",
         type: "image/svg+xml",
-        href: "/financial-charts/favicon.svg",
+        href: "/docs/favicon.svg",
       },
     ],
     ["meta", { name: "theme-color", content: "#0b1720" }],
@@ -81,12 +81,12 @@ export default defineConfig({
   },
   themeConfig: {
     logo: { light: "/logo-light.svg", dark: "/logo-dark.svg" },
-    siteTitle: "Charts",
+    siteTitle: "Contour",
     nav: [
       { text: "Guide", link: "/guide/quick-start" },
       { text: "Integrations", link: "/integrations/overview" },
       { text: "Reference", link: "/reference/chart" },
-      { text: "GitHub", link: "https://github.com/ardinsys/financial-charts" },
+      { text: "GitHub", link: "https://github.com/ardinsys/contour" },
     ],
     sidebar: [
       { text: "Introduction", link: "/introduction" },
@@ -139,7 +139,7 @@ export default defineConfig({
       },
     ],
     socialLinks: [
-      { icon: "github", link: "https://github.com/ardinsys/financial-charts" },
+      { icon: "github", link: "https://github.com/ardinsys/contour" },
     ],
     footer: {
       message: "Released under the Apache 2.0 License.",

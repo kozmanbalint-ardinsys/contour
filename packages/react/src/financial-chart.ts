@@ -4,7 +4,7 @@ import {
   type ChartOptions,
   type ChartOptionsUpdate,
   type TimeRange,
-} from "@ardinsys/financial-charts";
+} from "@ardinsys/contour";
 import {
   Fragment,
   createElement,
