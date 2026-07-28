@@ -15,7 +15,8 @@ type ChartData = {
 };
 ```
 
-- Every present value must be a finite number. Zero is a valid price or volume.
+- Timestamps must be finite. Non-finite OHLCV values are treated as missing;
+  zero remains a valid price or volume.
 - `setData` accepts any input order and sorts a copied dataset by `time`.
 - Timestamps are snapped to the configured `stepSize` so minor drift does not break alignment.
 - Bars render in ordinal index slots, so missing market sessions do not create horizontal time gaps.
@@ -55,9 +56,10 @@ numeric value, an explicitly supplied `null` is retained; a field that was only
 omitted stays omitted. This makes close-only data, partial OHLC updates, missing
 volume, and zero values safe to combine.
 
-Validation happens before the replacement becomes active. A non-finite
-timestamp or present OHLCV value throws `TypeError`; an invalid `stepSize`
-throws `RangeError` during construction or `updateOptions()`.
+Normalization and validation happen before the replacement becomes active.
+Non-finite OHLCV values are omitted as gaps, while a non-finite timestamp throws
+`TypeError`. An invalid `stepSize` throws `RangeError` during construction or
+`updateOptions()`.
 
 ## Streaming with `updateData`
 
@@ -127,8 +129,8 @@ series.
 
 - New points that land in the same `stepSize` bucket as the last candle use the same field merge rules as `setData`.
 - Timestamps are snapped **down** to the nearest `stepSize` boundary. If that is not desired, align them before calling `updateData`.
-- Non-finite timestamps or present values throw `TypeError` rather than entering
-  chart state. Zero is finite and remains valid.
+- Non-finite OHLCV values become gaps rather than entering chart state.
+  Non-finite timestamps still throw `TypeError`; zero remains valid.
 
 ## Troubleshooting gaps and jumps
 

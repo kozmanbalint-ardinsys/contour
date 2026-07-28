@@ -213,13 +213,25 @@ describe("DataStore", () => {
     expect(result).toEqual([{ time: 60, close: 0 }]);
   });
 
-  it("rejects non-finite values and invalid bucket sizes", () => {
+  it("normalizes non-finite values while rejecting invalid times and bucket sizes", () => {
     expect(() => DataStore.merge([{ time: Number.NaN }], 60)).toThrow(
       "ChartData.time must be a finite number."
     );
-    expect(() =>
-      DataStore.merge([{ time: 60, close: Number.POSITIVE_INFINITY }], 60)
-    ).toThrow("ChartData.close must be a finite number when present.");
+    expect(
+      DataStore.merge(
+        [
+          {
+            time: 60,
+            open: Number.NaN,
+            high: Number.POSITIVE_INFINITY,
+            low: Number.NEGATIVE_INFINITY,
+            close: 0,
+            volume: Number.NaN,
+          },
+        ],
+        60
+      )
+    ).toEqual([{ time: 60, close: 0 }]);
     expect(() => DataStore.merge([{ time: 60 }], 0)).toThrow(
       "stepSize must be a finite number greater than zero."
     );

@@ -992,9 +992,10 @@ export class FinancialChartBase {
   /**
    * Replaces the complete chart dataset without mutating the input.
    * Points are sorted, snapped to `stepSize`, and merged by bucket. An empty
-   * array clears all data-dependent state.
+   * array clears all data-dependent state. Non-finite optional values are
+   * treated as gaps.
    *
-   * @throws {TypeError} when a present data value is not finite
+   * @throws {TypeError} when a timestamp is not finite
    */
   public setData(data: readonly ChartData[]): void {
     this.assertActive("set data on");
@@ -1030,9 +1031,10 @@ export class FinancialChartBase {
   }
 
   /**
-   * Appends or merges one streaming point.
+   * Appends or merges one streaming point. Non-finite optional values are
+   * treated as gaps.
    *
-   * @throws {TypeError} when a present data value is not finite
+   * @throws {TypeError} when the timestamp is not finite
    * @throws {RangeError} when the timestamp is older than the latest point
    */
   public updateData(data: ChartData): void {

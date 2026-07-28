@@ -301,16 +301,15 @@ export class DataStore {
       throw new TypeError("ChartData.time must be a finite number.");
     }
 
+    const result: MutableChartData = { ...point };
     for (const field of ["open", "high", "low", "close", "volume"] as const) {
       const value = point[field];
       if (value != null && !Number.isFinite(value)) {
-        throw new TypeError(
-          `ChartData.${field} must be a finite number when present.`
-        );
+        delete result[field];
       }
     }
 
-    return { ...point };
+    return result;
   }
 
   private static assignMergedValue(

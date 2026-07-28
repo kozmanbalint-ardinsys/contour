@@ -58,8 +58,8 @@ type ChartData = {
 - `updateData(point)` is only for the newest observation: it merges into the
   latest bucket or appends a new bar and preserves the current view. Older
   timestamps throw — apply corrections with `setData()` instead.
-- Zero is a real value; `null`/missing fields are gaps. Non-finite values
-  throw `TypeError`.
+- Zero is a real value; `null`/missing fields are gaps. Non-finite OHLCV values
+  are normalized to gaps, while a non-finite timestamp throws `TypeError`.
 - Clear with `clearData()` or `setData([])`.
 - The X axis is index based: bars occupy ordinal slots, so weekends, holidays,
   and missing sessions produce no horizontal gaps.

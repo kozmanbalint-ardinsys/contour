@@ -176,15 +176,55 @@ describe("chart data contracts", () => {
     expect(chart.getData()).toBe(first);
   });
 
-  it("rejects non-finite public input without changing existing data", () => {
+  it("normalizes non-finite setData values to gaps without mutating input", () => {
+    const chart = createChart("line");
+    const start = Date.UTC(2024, 0, 1, 9);
+    const input = [
+      {
+        time: start,
+        open: Number.NaN,
+        high: Number.POSITIVE_INFINITY,
+        low: Number.NEGATIVE_INFINITY,
+        close: 5_000,
+        volume: Number.NaN,
+      },
+      {
+        time: start + 60_000,
+        open: Number.NaN,
+        high: Number.POSITIVE_INFINITY,
+        low: Number.NEGATIVE_INFINITY,
+        close: Number.NaN,
+        volume: Number.NaN,
+      },
+    ];
+
+    expect(() => chart.setData(input)).not.toThrow();
+    expect(chart.getData()).toEqual([
+      { time: start, close: 5_000 },
+      { time: start + 60_000 },
+    ]);
+    expect(Number.isNaN(input[0].open)).toBe(true);
+    expect(Number.isNaN(input[1].close)).toBe(true);
+    expect(() => requestChartRedraw(chart, "series", true)).not.toThrow();
+  });
+
+  it("normalizes non-finite updateData values while preserving zero", () => {
     const chart = createChart("line");
     const start = Date.UTC(2024, 0, 1, 9);
     chart.setData([{ time: start, close: 1 }]);
 
     expect(() =>
-      chart.updateData({ time: start + 60_000, close: Number.NaN })
-    ).toThrow("ChartData.close must be a finite number when present.");
+      chart.updateData({
+        time: start + 60_000,
+        open: Number.NaN,
+        close: Number.NaN,
+        volume: 0,
+      })
+    ).not.toThrow();
 
-    expect(chart.getData()).toEqual([{ time: start, close: 1 }]);
+    expect(chart.getData()).toEqual([
+      { time: start, close: 1 },
+      { time: start + 60_000, volume: 0 },
+    ]);
   });
 });

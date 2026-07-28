@@ -1,4 +1,7 @@
-/** One readonly financial-series observation. All present numbers must be finite. */
+/**
+ * One readonly financial-series observation. Non-finite optional values are
+ * treated as missing; time must be finite.
+ */
 export interface ChartData {
   /** UNIX timestamp in milliseconds. */
   readonly time: number;

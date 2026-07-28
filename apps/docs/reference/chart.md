@@ -166,7 +166,8 @@ type LocaleValues = {
 };
 ```
 
-- All present `ChartData` values must be finite numbers; zero is valid.
+- `ChartData.time` must be finite. Non-finite OHLCV values become gaps; zero is
+  valid.
 - `setData` copies and sorts input by `time`; caller-owned arrays and points are not mutated.
 - Points sharing a snapped bucket merge using first available open, greatest
   high, smallest low, last available close, and summed volume. Missing fields
