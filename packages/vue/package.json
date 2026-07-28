@@ -1,6 +1,6 @@
 {
   "name": "@ardinsys/contour-vue",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.4",
   "description": "Official Vue 3 bindings for @ardinsys/contour — a chart component owning lifecycle, data replacement, runtime options, and Teleport-based custom indicator labels.",
   "keywords": [
     "charts",
