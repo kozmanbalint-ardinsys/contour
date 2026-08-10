@@ -7,7 +7,7 @@ import {
 import { ChartIndicatorHost } from "../indicators/chart-indicator-host";
 import type { ScaleRangeModifier } from "../scales/data-scale-model";
 import type { TimeScaleRange } from "../scales/time-scale";
-import { ChartData, TimeRange } from "./types";
+import { ChartData, ChartDataInput, TimeRange } from "./types";
 import { EventEmitter, type ChartEventMap } from "./event-emitter";
 import { createPositionedContainer } from "../utils/dom";
 import { disposeInOrder } from "../utils/dispose";
@@ -995,9 +995,9 @@ export class FinancialChartBase {
    * array clears all data-dependent state. Non-finite optional values are
    * treated as gaps.
    *
-   * @throws {TypeError} when a timestamp is not finite
+   * @throws {TypeError} when a numeric time is not finite or a string time is invalid
    */
-  public setData(data: readonly ChartData[]): void {
+  public setData(data: readonly ChartDataInput[]): void {
     this.assertActive("set data on");
     this.applyPaneLayout();
     this.model.replaceData(data, this.options.stepSize);
@@ -1034,10 +1034,10 @@ export class FinancialChartBase {
    * Appends or merges one streaming point. Non-finite optional values are
    * treated as gaps.
    *
-   * @throws {TypeError} when the timestamp is not finite
+   * @throws {TypeError} when a numeric time is not finite or a string time is invalid
    * @throws {RangeError} when the timestamp is older than the latest point
    */
-  public updateData(data: ChartData): void {
+  public updateData(data: ChartDataInput): void {
     this.assertActive("update data on");
     if (!this.model.hasData()) {
       this.setData([data]);

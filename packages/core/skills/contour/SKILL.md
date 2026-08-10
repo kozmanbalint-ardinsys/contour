@@ -42,8 +42,8 @@ chart.dispose(); // idempotent; removes DOM, listeners, plugins, indicators
 ## Data rules
 
 ```ts
-type ChartData = {
-  readonly time: number; // UNIX ms, finite
+type ChartDataInput = {
+  readonly time: number | string; // UNIX ms or ISO 8601
   readonly open?: number | null;
   readonly high?: number | null;
   readonly low?: number | null;
@@ -55,11 +55,13 @@ type ChartData = {
 - `setData(data)` replaces the full dataset: it copies, validates, sorts,
   buckets by `stepSize`, and merges — caller arrays are never mutated. Any
   input order is fine.
+- String times are parsed once while the chart copies input. Internally and in
+  `getData()`, `ChartData.time` is always finite UNIX milliseconds.
 - `updateData(point)` is only for the newest observation: it merges into the
   latest bucket or appends a new bar and preserves the current view. Older
   timestamps throw — apply corrections with `setData()` instead.
 - Zero is a real value; `null`/missing fields are gaps. Non-finite OHLCV values
-  are normalized to gaps, while a non-finite timestamp throws `TypeError`.
+  are normalized to gaps, while an invalid numeric or string time throws `TypeError`.
 - Clear with `clearData()` or `setData([])`.
 - The X axis is index based: bars occupy ordinal slots, so weekends, holidays,
   and missing sessions produce no horizontal gaps.

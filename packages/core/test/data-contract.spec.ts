@@ -15,6 +15,7 @@ const charts: FinancialChart[] = [];
 
 afterEach(() => {
   while (charts.length > 0) charts.pop()?.dispose();
+  vi.restoreAllMocks();
   document.body.innerHTML = "";
 });
 
@@ -44,6 +45,46 @@ function createChart(type: ControllerType) {
 }
 
 describe("chart data contracts", () => {
+  it("normalizes ISO string times at the input boundary", () => {
+    const chart = createChart("line");
+    const first = "2024-01-01T09:00:00.000Z";
+    const second = "2024-01-01T09:01:00.000Z";
+    const input = [
+      { time: second, close: 2 },
+      { time: first, close: 1 },
+    ];
+
+    chart.setData(input);
+    chart.updateData({ time: "2024-01-01T09:02:00.000Z", close: 3 });
+
+    expect(chart.getData()).toEqual([
+      { time: Date.parse(first), close: 1 },
+      { time: Date.parse(second), close: 2 },
+      { time: Date.parse("2024-01-01T09:02:00.000Z"), close: 3 },
+    ]);
+    expect(input[0]!.time).toBe(second);
+  });
+
+  it("does not parse numeric times", () => {
+    const parse = vi.spyOn(Date, "parse");
+    const chart = createChart("line");
+
+    chart.setData([{ time: 0, close: 1 }]);
+    chart.updateData({ time: 60_000, close: 2 });
+
+    expect(parse).not.toHaveBeenCalled();
+  });
+
+  it("rejects invalid string times without changing data", () => {
+    const chart = createChart("line");
+    chart.setData([{ time: 0, close: 1 }]);
+
+    expect(() => chart.updateData({ time: "not-a-date", close: 2 })).toThrow(
+      "ChartData.time must be a valid date string."
+    );
+    expect(chart.getData()).toEqual([{ time: 0, close: 1 }]);
+  });
+
   it("renders finite close-only coordinates while preserving zero", () => {
     const chart = createChart("line");
     const start = Date.UTC(2024, 0, 1, 9);

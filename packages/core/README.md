@@ -38,7 +38,7 @@ const chart = new FinancialChart(document.getElementById("chart")!, {
 });
 
 chart.setData([
-  { time: Date.UTC(2024, 0, 1, 9), close: 100 },
+  { time: "2024-01-01T09:00:00.000Z", close: 100 },
   { time: Date.UTC(2024, 0, 1, 9, 1), close: 101 },
 ]);
 

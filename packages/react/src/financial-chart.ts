@@ -1,6 +1,6 @@
 import {
   FinancialChart as FinancialChartInstance,
-  type ChartData,
+  type ChartDataInput,
   type ChartOptions,
   type ChartOptionsUpdate,
   type TimeRange,
@@ -31,12 +31,12 @@ interface RuntimeOptionsSnapshot extends ChartOptionsUpdate {
 
 interface CurrentProps {
   readonly options: ChartOptions;
-  readonly data?: readonly ChartData[];
+  readonly data?: readonly ChartDataInput[];
   readonly adapter?: ReactDOMAdapter;
   readonly onReady?: (chart: FinancialChartInstance) => void;
 }
 
-const EMPTY_DATA: readonly ChartData[] = [];
+const EMPTY_DATA: readonly ChartDataInput[] = [];
 
 export const FinancialChart = forwardRef<
   FinancialChartHandle,
@@ -55,7 +55,9 @@ export const FinancialChart = forwardRef<
 ): ReactElement {
   const hostRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<FinancialChartInstance | undefined>(undefined);
-  const appliedDataRef = useRef<readonly ChartData[] | undefined>(undefined);
+  const appliedDataRef = useRef<readonly ChartDataInput[] | undefined>(
+    undefined
+  );
   const stableIndicatorLabels = useStableRendererMap(indicatorLabels);
   // Consumers routinely recreate the options object per render; reuse the
   // previous reference for structurally-equal values so equal content never

@@ -17,7 +17,7 @@ reference pages.
 | Exports                                                                                                                                                | Reference                                                     |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
 | `FinancialChart`, `CoreChartOptions`                                                                                                                   | [FinancialChart](/reference/chart)                            |
-| `ChartData`, `TimeRange`                                                                                                                               | [Data contracts](/reference/chart#data-contracts)             |
+| `ChartData`, `ChartDataInput`, `TimeRange`                                                                                                             | [Data contracts](/reference/chart#data-contracts)             |
 | `ChartOptions`, `ChartOptionsUpdate`, `ChartOptionsSnapshot`, `ChartOptionsChangeEvent`, `ChartOptionKey`, `ChartLocalizationOptions`, `WheelZoomMode` | [Options](/reference/chart#chartoptions)                      |
 | `LocaleValues`, `LocaleValuesMap`                                                                                                                      | [i18n](/guide/i18n)                                           |
 | `ControllerID`, `ControllerType`, `ControllerConstructor`                                                                                              | [Controllers](/reference/engine#custom-controllers)           |

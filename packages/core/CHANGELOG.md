@@ -42,6 +42,9 @@
 
 ### Added
 
+- `setData()` and `updateData()` accept ISO date strings as well as numeric UNIX
+  milliseconds. Strings are parsed once at the input-copy boundary; retained and
+  returned chart data remains numeric.
 - `setData`, `updateData`, and `clearData` provide explicit replacement,
   streaming, and clearing behavior, including safe stream-first initialization.
 - `DataStore` for sorted bar storage, binary lookup, merge, and visible slicing.

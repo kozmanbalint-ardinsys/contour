@@ -1,6 +1,7 @@
 import {
   FinancialChart,
   type ChartData,
+  type ChartDataInput,
   type ChartOptionsChangeEvent,
 } from "@ardinsys/contour";
 
@@ -14,6 +15,11 @@ const data: ChartData[] = [
 
 chart.setData(data);
 chart.updateData({ time: 120_000, close: 102 });
+const stringTimeData: ChartDataInput[] = [
+  { time: "2024-01-01T09:00:00.000Z", close: 103 },
+];
+chart.setData(stringTimeData);
+chart.updateData({ time: "2024-01-01T09:01:00.000Z", close: 104 });
 chart.updateOptions({ type: "line", volume: false });
 chart.setVisibleTimeRange({ start: 0, end: 120_000 });
 chart.setVisibleLogicalRange({ from: 0, to: 2 });
@@ -86,4 +92,12 @@ unsubscribePaneHeights();
 chart.clearData();
 chart.dispose();
 
-void [options, mappedData, indicators, panes, crosshair, pixelsPerBar];
+void [
+  options,
+  mappedData,
+  indicators,
+  panes,
+  crosshair,
+  pixelsPerBar,
+  stringTimeData,
+];

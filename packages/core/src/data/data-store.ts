@@ -1,4 +1,4 @@
-import type { ChartData } from "../chart/types";
+import type { ChartData, ChartDataInput } from "../chart/types";
 
 export type TimeBucketPolicy = "floor" | "round";
 
@@ -11,7 +11,7 @@ export class DataStore {
   private dataSnapshot?: readonly ChartData[];
   private timeValues?: readonly number[];
 
-  constructor(data: readonly ChartData[] = []) {
+  constructor(data: readonly ChartDataInput[] = []) {
     this.data = data
       .map((point) => DataStore.copyPoint(point))
       .sort((left, right) => left.time - right.time);
@@ -59,8 +59,13 @@ export class DataStore {
     return previousDistance <= nextDistance ? previousIndex : nextIndex;
   }
 
-  append(point: ChartData): number {
+  append(point: ChartDataInput): number {
     return this.insertStored(DataStore.copyPoint(point));
+  }
+
+  /** Inserts a point already normalized and owned by the caller. */
+  appendStored(point: ChartData): number {
+    return this.insertStored(point);
   }
 
   private insertStored(point: ChartData): number {
@@ -71,7 +76,7 @@ export class DataStore {
     return index;
   }
 
-  merge(point: ChartData, stepSize: number): boolean {
+  merge(point: ChartDataInput, stepSize: number): boolean {
     return this.mergeStored(DataStore.copyPoint(point), stepSize);
   }
 
@@ -186,7 +191,7 @@ export class DataStore {
   }
 
   static merge(
-    data: readonly ChartData[],
+    data: readonly ChartDataInput[],
     stepSize: number
   ): readonly ChartData[] {
     return new DataStore(data).createMappedStore(stepSize).snapshot();
@@ -296,12 +301,21 @@ export class DataStore {
     return result;
   }
 
-  private static copyPoint(point: ChartData): ChartData {
-    if (!Number.isFinite(point.time)) {
-      throw new TypeError("ChartData.time must be a finite number.");
+  static copyPoint(point: ChartDataInput): ChartData {
+    let time: number;
+    if (typeof point.time === "string") {
+      time = Date.parse(point.time);
+      if (!Number.isFinite(time)) {
+        throw new TypeError("ChartData.time must be a valid date string.");
+      }
+    } else {
+      time = point.time;
+      if (!Number.isFinite(time)) {
+        throw new TypeError("ChartData.time must be a finite number.");
+      }
     }
 
-    const result: MutableChartData = { ...point };
+    const result: MutableChartData = { ...point, time };
     for (const field of ["open", "high", "low", "close", "volume"] as const) {
       const value = point[field];
       if (value != null && !Number.isFinite(value)) {

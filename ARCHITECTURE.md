@@ -47,6 +47,12 @@ facade.
 `close`; OHLC controllers read `open`, `high`, `low`, and `close`; volume is
 optional for every controller.
 
+`ChartDataInput` accepts either numeric UNIX milliseconds or a date string at
+the application boundary. `DataStore` parses string times while making its one
+owned copy. Every retained point and every snapshot exposed as `ChartData` has a
+numeric time, so sorting, bucketing, scales, rendering, and extensions never
+carry a time union.
+
 `ChartModel` keeps two stores:
 
 - its source store owns validated input points at their original timestamps;

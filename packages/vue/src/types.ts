@@ -1,5 +1,5 @@
 import type {
-  ChartData,
+  ChartDataInput,
   ChartOptions,
   FinancialChart,
 } from "@ardinsys/contour";
@@ -40,7 +40,7 @@ export interface VueDOMAdapterOptions {
 
 export interface FinancialChartProps {
   readonly options: ChartOptions;
-  readonly data?: readonly ChartData[];
+  readonly data?: readonly ChartDataInput[];
   readonly indicatorLabel?: IndicatorLabelRenderer;
   readonly indicatorLabels?: IndicatorLabelRendererMap;
   readonly paneDivider?: PaneDividerRenderer;

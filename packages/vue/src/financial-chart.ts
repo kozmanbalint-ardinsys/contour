@@ -1,6 +1,6 @@
 import {
   FinancialChart as FinancialChartInstance,
-  type ChartData,
+  type ChartDataInput,
   type ChartOptions,
   type ChartOptionsUpdate,
   type TimeRange,
@@ -38,7 +38,7 @@ export const FinancialChart = defineComponent({
       required: true,
     },
     data: {
-      type: Array as PropType<readonly ChartData[]>,
+      type: Array as PropType<readonly ChartDataInput[]>,
       default: undefined,
     },
     indicatorLabel: {

@@ -133,15 +133,18 @@ const chart = new FinancialChart(root, {
 ## Data contracts
 
 ```ts
-// Exported as `ChartData` from "@ardinsys/contour"
-type ChartData = {
-  readonly time: number; // UNIX timestamp in milliseconds
+// Accepted by setData() and updateData()
+type ChartDataInput = {
+  readonly time: number | string; // UNIX milliseconds or ISO 8601
   readonly open?: number | null;
   readonly high?: number | null;
   readonly low?: number | null;
   readonly close?: number | null;
   readonly volume?: number | null;
 };
+
+// Returned by getData(), plugins, and events after input normalization
+type ChartData = ChartDataInput & { readonly time: number };
 
 type TimeRange = { start: number; end: number };
 
@@ -166,8 +169,9 @@ type LocaleValues = {
 };
 ```
 
-- `ChartData.time` must be finite. Non-finite OHLCV values become gaps; zero is
-  valid.
+- Numeric input times must be finite. String input times are parsed once while
+  the chart copies them and must be valid dates. `ChartData.time` is always
+  numeric after this boundary. Non-finite OHLCV values become gaps; zero is valid.
 - `setData` copies and sorts input by `time`; caller-owned arrays and points are not mutated.
 - Points sharing a snapped bucket merge using first available open, greatest
   high, smallest low, last available close, and summed volume. Missing fields

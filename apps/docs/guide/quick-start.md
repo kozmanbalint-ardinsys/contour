@@ -54,9 +54,11 @@ const chart = new FinancialChart(container, {
 chart.setData(data);
 ```
 
-`ChartData.time` is a finite millisecond timestamp. Price and volume fields are
-optional and accept `null`; zero is always treated as a real value. `setData()`
-copies, validates, sorts, buckets, and merges the input without mutating it.
+Input `time` accepts finite UNIX milliseconds or an ISO 8601 string. Strings are
+parsed once while the chart copies input; stored and returned `ChartData.time`
+is always numeric. Price and volume fields are optional and accept `null`; zero
+is always treated as a real value. `setData()` copies, validates, sorts, buckets,
+and merges the input without mutating it.
 
 ## Stream updates
 

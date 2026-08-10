@@ -5,7 +5,7 @@ import {
   type ScaleRangeModifier,
 } from "../scales/data-scale-model";
 import type { BarAlignment, TimeScaleRange } from "../scales/time-scale";
-import type { ChartData, TimeRange } from "./types";
+import type { ChartData, ChartDataInput, TimeRange } from "./types";
 
 const logicalRangeEpsilon = 1e-9;
 
@@ -52,7 +52,7 @@ export class ChartModel {
     return this.mappedData.times();
   }
 
-  replaceData(data: readonly ChartData[], stepSize: number): void {
+  replaceData(data: readonly ChartDataInput[], stepSize: number): void {
     const originalData = new DataStore(data);
     const mappedData = originalData.createMappedStore(stepSize);
     this.originalData = originalData;
@@ -63,17 +63,18 @@ export class ChartModel {
     this.mappedData = this.originalData.createMappedStore(stepSize);
   }
 
-  appendData(data: ChartData, stepSize: number): ChartData {
+  appendData(data: ChartDataInput, stepSize: number): ChartData {
+    const normalizedData = DataStore.copyPoint(data);
     const latestTime = this.originalData.get(
       this.originalData.length - 1
     )?.time;
-    if (latestTime !== undefined && data.time < latestTime) {
+    if (latestTime !== undefined && normalizedData.time < latestTime) {
       throw new RangeError(
         "updateData() requires a timestamp at or after the latest point. Use setData() to apply older corrections."
       );
     }
 
-    const originalIndex = this.originalData.append(data);
+    const originalIndex = this.originalData.appendStored(normalizedData);
     const storedOriginal = this.originalData.get(originalIndex)!;
     const bucketTime = DataStore.bucketTime(
       storedOriginal.time,

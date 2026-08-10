@@ -5,8 +5,8 @@ Charts stay predictable when the incoming feed matches the expected shape and ca
 ## Candle shape and ordering
 
 ```ts
-type ChartData = {
-  readonly time: number; // UNIX timestamp in milliseconds
+type ChartDataInput = {
+  readonly time: number | string; // UNIX milliseconds or ISO 8601
   readonly open?: number | null;
   readonly high?: number | null;
   readonly low?: number | null;
@@ -15,7 +15,9 @@ type ChartData = {
 };
 ```
 
-- Timestamps must be finite. Non-finite OHLCV values are treated as missing;
+- Numeric times must be finite. String times are parsed once while Contour
+  copies the input and must be valid dates. Stored and returned times are always
+  numeric UNIX milliseconds. Non-finite OHLCV values are treated as missing;
   zero remains a valid price or volume.
 - `setData` accepts any input order and sorts a copied dataset by `time`.
 - Timestamps are snapped to the configured `stepSize` so minor drift does not break alignment.
@@ -57,9 +59,9 @@ omitted stays omitted. This makes close-only data, partial OHLC updates, missing
 volume, and zero values safe to combine.
 
 Normalization and validation happen before the replacement becomes active.
-Non-finite OHLCV values are omitted as gaps, while a non-finite timestamp throws
-`TypeError`. An invalid `stepSize` throws `RangeError` during construction or
-`updateOptions()`.
+Non-finite OHLCV values are omitted as gaps, while a non-finite numeric time or
+invalid string time throws `TypeError`. An invalid `stepSize` throws `RangeError`
+during construction or `updateOptions()`.
 
 ## Streaming with `updateData`
 
