@@ -127,7 +127,7 @@ useSeoMeta({
             <div class="hero-chart-frame instrument-panel">
               <div class="hero-chart-topbar">
                 <div>
-                  <span class="status-dot" /><strong>ARDIN / EUR</strong
+                  <span class="status-dot" /><strong>ARDINSYS / EUR</strong
                   ><small>· XETRA</small>
                 </div>
                 <span class="mono">15M</span>
